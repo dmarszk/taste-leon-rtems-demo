@@ -23,10 +23,11 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
+#ifndef __rtems__
 #include <sys/sysinfo.h>
 #include <sys/reboot.h>
 #include <linux/reboot.h>
-
+#endif
 #include <csp/csp.h>
 #include <csp/csp_error.h>
 
@@ -42,14 +43,21 @@ int csp_sys_tasklist_size(void) {
 }
 
 uint32_t csp_sys_memfree(void) {
+#ifdef __rtems__
+	return 0;
+#else
 	uint32_t total = 0;
 	struct sysinfo info;
 	sysinfo(&info);
 	total = info.freeram * info.mem_unit;
 	return total;
+#endif
 }
 
 int csp_sys_reboot(void) {
+#ifdef __rtems__
+	return CSP_ERR_NOTSUP;
+#else
 	int magic = LINUX_REBOOT_CMD_RESTART;
 
 	/* Sync filesystem before reboot */
@@ -60,6 +68,7 @@ int csp_sys_reboot(void) {
 	csp_log_error("Failed to reboot: %s", strerror(errno));
 
 	return CSP_ERR_INVAL;
+#endif
 }
 
 void csp_sys_set_color(csp_color_t color) {
