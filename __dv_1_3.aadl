@@ -1,0 +1,81 @@
+---------------------------------------------------
+-- AADL2.1
+-- TASTE type deploymentview
+-- 
+-- generated code: do not edit
+---------------------------------------------------
+
+PACKAGE deploymentview::DV::LeonNode
+PUBLIC
+
+WITH Taste;
+WITH Deployment;
+WITH TASTE_DV_Properties;
+PROCESS leon3_partition
+END leon3_partition;
+
+PROCESS IMPLEMENTATION leon3_partition.others
+END leon3_partition.others;
+
+END deploymentview::DV::LeonNode;
+
+PACKAGE deploymentview::DV
+PUBLIC
+
+WITH interfaceview::IV;
+WITH ocarina_processors_leon;
+WITH deploymentview::DV::LeonNode;
+WITH Taste;
+WITH Deployment;
+WITH interfaceview::IV;
+WITH TASTE_DV_Properties;
+SYSTEM LeonNode
+END LeonNode;
+
+SYSTEM IMPLEMENTATION LeonNode.others
+SUBCOMPONENTS
+  IV_Manager : SYSTEM interfaceview::IV::Manager.others {
+    Taste::FunctionName => "Manager";
+  };
+  IV_GPS_Driver : SYSTEM interfaceview::IV::GPS_Driver.others {
+    Taste::FunctionName => "GPS_Driver";
+  };
+  IV_LEON_UART : SYSTEM interfaceview::IV::LEON_UART.others {
+    Taste::FunctionName => "LEON_UART";
+  };
+  IV_SystemInit : SYSTEM interfaceview::IV::SystemInit.others {
+    Taste::FunctionName => "SystemInit";
+  };
+  leon3_partition : PROCESS deploymentview::DV::LeonNode::leon3_partition.others {
+    Taste::coordinates => "95254 46888 122074 61380";
+    Deployment::Port_Number => 0;
+  };
+  leon3_rtems412_posix_nofpu : PROCESSOR ocarina_processors_leon::leon3.rtems412_posix_nofpu {
+    Taste::coordinates => "90208 42747 125426 63450";
+  };
+PROPERTIES
+  Taste::APLC_Binding => (reference (leon3_partition)) APPLIES TO IV_Manager;
+  Taste::APLC_Binding => (reference (leon3_partition)) APPLIES TO IV_GPS_Driver;
+  Taste::APLC_Binding => (reference (leon3_partition)) APPLIES TO IV_LEON_UART;
+  Taste::APLC_Binding => (reference (leon3_partition)) APPLIES TO IV_SystemInit;
+  Actual_Processor_Binding => (reference (leon3_rtems412_posix_nofpu)) APPLIES TO leon3_partition;
+END LeonNode.others;
+
+SYSTEM deploymentview
+END deploymentview;
+
+SYSTEM IMPLEMENTATION deploymentview.others
+SUBCOMPONENTS
+  LeonNode : SYSTEM LeonNode.others {
+    Taste::coordinates => "87711 36832 129616 66408";
+  };
+  interfaceview : SYSTEM interfaceview::IV::interfaceview.others;
+END deploymentview.others;
+
+PROPERTIES
+  Taste::coordinates => "0 0 297000 210000";
+  Taste::version => "1.3";
+  Taste::interfaceView => "InterfaceView.aadl";
+  Taste::HWLibraries => ("../tool-inst/share/ocarina/AADLv2/ocarina_components.aadl");
+END deploymentview::DV;
+
