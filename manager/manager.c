@@ -26,22 +26,45 @@ static rtems_interval last_tick, new_tick;
 
 void manager_startup()
 {
-  printf("Manager startup\n");
+  printf("manager_startup\n");
   last_tick = rtems_clock_get_ticks_since_boot() - 50;
 
   counter = 0;
 }
 
-void manager_PI_internalLoop()
+static const char* getGPSStatusString(asn1SccGPS_Status* status)
 {
+  switch(*status)
+  {
+    case asn1Sccoffline:
+      return "OFFLINE";
+      break;
+    case asn1Sccno_position_fix:
+      return "NO POSITION FIX";
+      break;
+    case asn1Sccvalid_position_fix:
+      return "VALID POSITION FIX";
+      break;
+    default:
+      return "UNKNOWN STATUS ENUM";
+      break;
+  }
+  
+}
+
+void manager_PI_tick()
+{
+  static asn1SccGPS_Status gps_status;
   static __po_hi_time_t now;
   rtems_interval delta;
   __po_hi_get_time (&now);
   new_tick = rtems_clock_get_ticks_since_boot();
   delta = new_tick-last_tick;
-  printf("Loop cycle: %lu\n", counter++);
+  printf("Manager tick: %lu\n", counter++);
   printf("PolyORB Clock: %lu.%09lu\n", now.sec, now.nsec);
   printf("RTEMS Ticks: %lu (+%lu)\n", new_tick, delta);
+  manager_RI_gpsGetStatus(&gps_status);
+  printf("GPS status: %s\n", getGPSStatusString(&gps_status));
   printf("\n");
   last_tick = new_tick;
 }

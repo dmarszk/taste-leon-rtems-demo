@@ -26,6 +26,8 @@ WITH interfaceview::IV::Manager;
 WITH interfaceview::IV::GPS_Driver;
 WITH interfaceview::IV::LEON_UART;
 WITH interfaceview::IV::SystemInit;
+WITH interfaceview::IV::LEON_OC_CAN;
+WITH interfaceview::IV::CAN_Protocol_Impl;
 WITH ocarina_processors_leon;
 WITH deploymentview::DV::LeonNode;
 WITH Taste;
@@ -49,6 +51,12 @@ SUBCOMPONENTS
   IV_SystemInit : SYSTEM interfaceview::IV::SystemInit::SystemInit.others {
     Taste::FunctionName => "SystemInit";
   };
+  IV_LEON_OC_CAN : SYSTEM interfaceview::IV::LEON_OC_CAN::LEON_OC_CAN.others {
+    Taste::FunctionName => "LEON_OC_CAN";
+  };
+  IV_CAN_Protocol_Impl : SYSTEM interfaceview::IV::CAN_Protocol_Impl::CAN_Protocol_Impl.others {
+    Taste::FunctionName => "CAN_Protocol_Impl";
+  };
   leon3_partition : PROCESS deploymentview::DV::LeonNode::leon3_partition.others {
     Taste::coordinates => "95254 46888 122074 61380";
     Deployment::Port_Number => 0;
@@ -61,6 +69,8 @@ PROPERTIES
   Taste::APLC_Binding => (reference (leon3_partition)) APPLIES TO IV_GPS_Driver;
   Taste::APLC_Binding => (reference (leon3_partition)) APPLIES TO IV_LEON_UART;
   Taste::APLC_Binding => (reference (leon3_partition)) APPLIES TO IV_SystemInit;
+  Taste::APLC_Binding => (reference (leon3_partition)) APPLIES TO IV_LEON_OC_CAN;
+  Taste::APLC_Binding => (reference (leon3_partition)) APPLIES TO IV_CAN_Protocol_Impl;
   Actual_Processor_Binding => (reference (leon3_rtems412_posix_nofpu)) APPLIES TO leon3_partition;
 END LeonNode.others;
 

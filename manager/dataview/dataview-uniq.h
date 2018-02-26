@@ -11,100 +11,20 @@ extern "C" {
 
 
 
-typedef asn1SccSint asn1SccT_Int32;
-
-#define asn1SccT_Int32_REQUIRED_BYTES_FOR_ENCODING       4 
-#define asn1SccT_Int32_REQUIRED_BITS_FOR_ENCODING        32
-#define asn1SccT_Int32_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
-#define asn1SccT_Int32_REQUIRED_BITS_FOR_ACN_ENCODING    32
-#define asn1SccT_Int32_REQUIRED_BYTES_FOR_XER_ENCODING   39
-
-void asn1SccT_Int32_Initialize(asn1SccT_Int32* pVal);
-flag asn1SccT_Int32_IsConstraintValid(const asn1SccT_Int32* val, int* pErrCode);
-#ifndef ERR_asn1SccT_Int32 
-#define ERR_asn1SccT_Int32		1001  /*(-2147483648 .. 2147483647)*/
-#endif
-
-typedef asn1SccUint asn1SccT_UInt32;
-
-#define asn1SccT_UInt32_REQUIRED_BYTES_FOR_ENCODING       4 
-#define asn1SccT_UInt32_REQUIRED_BITS_FOR_ENCODING        32
-#define asn1SccT_UInt32_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
-#define asn1SccT_UInt32_REQUIRED_BITS_FOR_ACN_ENCODING    32
-#define asn1SccT_UInt32_REQUIRED_BYTES_FOR_XER_ENCODING   41
-
-void asn1SccT_UInt32_Initialize(asn1SccT_UInt32* pVal);
-flag asn1SccT_UInt32_IsConstraintValid(const asn1SccT_UInt32* val, int* pErrCode);
-#ifndef ERR_asn1SccT_UInt32 
-#define ERR_asn1SccT_UInt32		1002  /*(0 .. 4294967295)*/
-#endif
-
-typedef asn1SccSint asn1SccT_Int8;
-
-#define asn1SccT_Int8_REQUIRED_BYTES_FOR_ENCODING       1 
-#define asn1SccT_Int8_REQUIRED_BITS_FOR_ENCODING        8
-#define asn1SccT_Int8_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
-#define asn1SccT_Int8_REQUIRED_BITS_FOR_ACN_ENCODING    8
-#define asn1SccT_Int8_REQUIRED_BYTES_FOR_XER_ENCODING   37
-
-void asn1SccT_Int8_Initialize(asn1SccT_Int8* pVal);
-flag asn1SccT_Int8_IsConstraintValid(const asn1SccT_Int8* val, int* pErrCode);
-#ifndef ERR_asn1SccT_Int8 
-#define ERR_asn1SccT_Int8		1003  /*(-128 .. 127)*/
-#endif
-
-typedef asn1SccUint asn1SccT_UInt8;
-
-#define asn1SccT_UInt8_REQUIRED_BYTES_FOR_ENCODING       1 
-#define asn1SccT_UInt8_REQUIRED_BITS_FOR_ENCODING        8
-#define asn1SccT_UInt8_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
-#define asn1SccT_UInt8_REQUIRED_BITS_FOR_ACN_ENCODING    8
-#define asn1SccT_UInt8_REQUIRED_BYTES_FOR_XER_ENCODING   39
-
-void asn1SccT_UInt8_Initialize(asn1SccT_UInt8* pVal);
-flag asn1SccT_UInt8_IsConstraintValid(const asn1SccT_UInt8* val, int* pErrCode);
-#ifndef ERR_asn1SccT_UInt8 
-#define ERR_asn1SccT_UInt8		1004  /*(0 .. 255)*/
-#endif
-
-typedef flag asn1SccT_Boolean;
-
-#define asn1SccT_Boolean_REQUIRED_BYTES_FOR_ENCODING       1 
-#define asn1SccT_Boolean_REQUIRED_BITS_FOR_ENCODING        1
-#define asn1SccT_Boolean_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
-#define asn1SccT_Boolean_REQUIRED_BITS_FOR_ACN_ENCODING    1
-#define asn1SccT_Boolean_REQUIRED_BYTES_FOR_XER_ENCODING   36
-
-void asn1SccT_Boolean_Initialize(asn1SccT_Boolean* pVal);
-flag asn1SccT_Boolean_IsConstraintValid(const asn1SccT_Boolean* val, int* pErrCode);
-
-
-typedef flag asn1SccTASTE_Boolean;
-
-#define asn1SccTASTE_Boolean_REQUIRED_BYTES_FOR_ENCODING       1 
-#define asn1SccTASTE_Boolean_REQUIRED_BITS_FOR_ENCODING        1
-#define asn1SccTASTE_Boolean_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
-#define asn1SccTASTE_Boolean_REQUIRED_BITS_FOR_ACN_ENCODING    1
-#define asn1SccTASTE_Boolean_REQUIRED_BYTES_FOR_XER_ENCODING   44
-
-void asn1SccTASTE_Boolean_Initialize(asn1SccTASTE_Boolean* pVal);
-flag asn1SccTASTE_Boolean_IsConstraintValid(const asn1SccTASTE_Boolean* val, int* pErrCode);
-
-
 typedef struct {    
-    byte arr[255];
+    byte arr[384];
 } asn1SccUART_String;
 
-#define asn1SccUART_String_REQUIRED_BYTES_FOR_ENCODING       255 
-#define asn1SccUART_String_REQUIRED_BITS_FOR_ENCODING        2040
-#define asn1SccUART_String_REQUIRED_BYTES_FOR_ACN_ENCODING   255 
-#define asn1SccUART_String_REQUIRED_BITS_FOR_ACN_ENCODING    2040
-#define asn1SccUART_String_REQUIRED_BYTES_FOR_XER_ENCODING   537
+#define asn1SccUART_String_REQUIRED_BYTES_FOR_ENCODING       384 
+#define asn1SccUART_String_REQUIRED_BITS_FOR_ENCODING        3072
+#define asn1SccUART_String_REQUIRED_BYTES_FOR_ACN_ENCODING   384 
+#define asn1SccUART_String_REQUIRED_BITS_FOR_ACN_ENCODING    3072
+#define asn1SccUART_String_REQUIRED_BYTES_FOR_XER_ENCODING   795
 
 void asn1SccUART_String_Initialize(asn1SccUART_String* pVal);
 flag asn1SccUART_String_IsConstraintValid(const asn1SccUART_String* val, int* pErrCode);
 #ifndef ERR_asn1SccUART_String 
-#define ERR_asn1SccUART_String		1005  /*(SIZE(255))*/
+#define ERR_asn1SccUART_String		1001  /*(SIZE(384))*/
 #endif
 
 typedef enum {
@@ -122,10 +42,26 @@ typedef enum {
 void asn1SccGPS_Status_Initialize(asn1SccGPS_Status* pVal);
 flag asn1SccGPS_Status_IsConstraintValid(const asn1SccGPS_Status* val, int* pErrCode);
 #ifndef ERR_asn1SccGPS_Status_unknown_enumeration_value 
-#define ERR_asn1SccGPS_Status_unknown_enumeration_value		1007  /**/
+#define ERR_asn1SccGPS_Status_unknown_enumeration_value		1003  /**/
 #endif
 #ifndef ERR_asn1SccGPS_Status 
-#define ERR_asn1SccGPS_Status		1006  /**/
+#define ERR_asn1SccGPS_Status		1002  /**/
+#endif
+
+typedef struct {    
+    byte arr[8];
+} asn1SccCAN_Frame_data;
+
+#define asn1SccCAN_Frame_data_REQUIRED_BYTES_FOR_ENCODING       8 
+#define asn1SccCAN_Frame_data_REQUIRED_BITS_FOR_ENCODING        64
+#define asn1SccCAN_Frame_data_REQUIRED_BYTES_FOR_ACN_ENCODING   8 
+#define asn1SccCAN_Frame_data_REQUIRED_BITS_FOR_ACN_ENCODING    64
+#define asn1SccCAN_Frame_data_REQUIRED_BYTES_FOR_XER_ENCODING   49
+
+void asn1SccCAN_Frame_data_Initialize(asn1SccCAN_Frame_data* pVal);
+flag asn1SccCAN_Frame_data_IsConstraintValid(const asn1SccCAN_Frame_data* val, int* pErrCode);
+#ifndef ERR_asn1SccCAN_Frame_data 
+#define ERR_asn1SccCAN_Frame_data		1004  /*(SIZE(8))*/
 #endif
 
 typedef asn1SccUint asn1SccLEON_UART_Configuration_baud;
@@ -139,7 +75,7 @@ typedef asn1SccUint asn1SccLEON_UART_Configuration_baud;
 void asn1SccLEON_UART_Configuration_baud_Initialize(asn1SccLEON_UART_Configuration_baud* pVal);
 flag asn1SccLEON_UART_Configuration_baud_IsConstraintValid(const asn1SccLEON_UART_Configuration_baud* val, int* pErrCode);
 #ifndef ERR_asn1SccLEON_UART_Configuration_baud 
-#define ERR_asn1SccLEON_UART_Configuration_baud		1008  /*(0 .. 921600)*/
+#define ERR_asn1SccLEON_UART_Configuration_baud		1005  /*(0 .. 921600)*/
 #endif
 
 typedef asn1SccUint asn1SccLEON_UART_Configuration_console_id;
@@ -153,7 +89,7 @@ typedef asn1SccUint asn1SccLEON_UART_Configuration_console_id;
 void asn1SccLEON_UART_Configuration_console_id_Initialize(asn1SccLEON_UART_Configuration_console_id* pVal);
 flag asn1SccLEON_UART_Configuration_console_id_IsConstraintValid(const asn1SccLEON_UART_Configuration_console_id* val, int* pErrCode);
 #ifndef ERR_asn1SccLEON_UART_Configuration_console_id 
-#define ERR_asn1SccLEON_UART_Configuration_console_id		1009  /*(0 .. 9)*/
+#define ERR_asn1SccLEON_UART_Configuration_console_id		1006  /*(0 .. 9)*/
 #endif
 
 typedef struct {
@@ -171,6 +107,90 @@ void asn1SccLEON_UART_Configuration_Initialize(asn1SccLEON_UART_Configuration* p
 flag asn1SccLEON_UART_Configuration_IsConstraintValid(const asn1SccLEON_UART_Configuration* val, int* pErrCode);
 
 
+typedef asn1SccSint asn1SccT_Int32;
+
+#define asn1SccT_Int32_REQUIRED_BYTES_FOR_ENCODING       4 
+#define asn1SccT_Int32_REQUIRED_BITS_FOR_ENCODING        32
+#define asn1SccT_Int32_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
+#define asn1SccT_Int32_REQUIRED_BITS_FOR_ACN_ENCODING    32
+#define asn1SccT_Int32_REQUIRED_BYTES_FOR_XER_ENCODING   39
+
+void asn1SccT_Int32_Initialize(asn1SccT_Int32* pVal);
+flag asn1SccT_Int32_IsConstraintValid(const asn1SccT_Int32* val, int* pErrCode);
+#ifndef ERR_asn1SccT_Int32 
+#define ERR_asn1SccT_Int32		1007  /*(-2147483648 .. 2147483647)*/
+#endif
+
+typedef asn1SccUint asn1SccT_UInt32;
+
+#define asn1SccT_UInt32_REQUIRED_BYTES_FOR_ENCODING       4 
+#define asn1SccT_UInt32_REQUIRED_BITS_FOR_ENCODING        32
+#define asn1SccT_UInt32_REQUIRED_BYTES_FOR_ACN_ENCODING   4 
+#define asn1SccT_UInt32_REQUIRED_BITS_FOR_ACN_ENCODING    32
+#define asn1SccT_UInt32_REQUIRED_BYTES_FOR_XER_ENCODING   41
+
+void asn1SccT_UInt32_Initialize(asn1SccT_UInt32* pVal);
+flag asn1SccT_UInt32_IsConstraintValid(const asn1SccT_UInt32* val, int* pErrCode);
+#ifndef ERR_asn1SccT_UInt32 
+#define ERR_asn1SccT_UInt32		1008  /*(0 .. 4294967295)*/
+#endif
+
+typedef asn1SccSint asn1SccT_Int8;
+
+#define asn1SccT_Int8_REQUIRED_BYTES_FOR_ENCODING       1 
+#define asn1SccT_Int8_REQUIRED_BITS_FOR_ENCODING        8
+#define asn1SccT_Int8_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
+#define asn1SccT_Int8_REQUIRED_BITS_FOR_ACN_ENCODING    8
+#define asn1SccT_Int8_REQUIRED_BYTES_FOR_XER_ENCODING   37
+
+void asn1SccT_Int8_Initialize(asn1SccT_Int8* pVal);
+flag asn1SccT_Int8_IsConstraintValid(const asn1SccT_Int8* val, int* pErrCode);
+#ifndef ERR_asn1SccT_Int8 
+#define ERR_asn1SccT_Int8		1009  /*(-128 .. 127)*/
+#endif
+
+typedef asn1SccUint asn1SccT_UInt8;
+
+#define asn1SccT_UInt8_REQUIRED_BYTES_FOR_ENCODING       1 
+#define asn1SccT_UInt8_REQUIRED_BITS_FOR_ENCODING        8
+#define asn1SccT_UInt8_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
+#define asn1SccT_UInt8_REQUIRED_BITS_FOR_ACN_ENCODING    8
+#define asn1SccT_UInt8_REQUIRED_BYTES_FOR_XER_ENCODING   39
+
+void asn1SccT_UInt8_Initialize(asn1SccT_UInt8* pVal);
+flag asn1SccT_UInt8_IsConstraintValid(const asn1SccT_UInt8* val, int* pErrCode);
+#ifndef ERR_asn1SccT_UInt8 
+#define ERR_asn1SccT_UInt8		1010  /*(0 .. 255)*/
+#endif
+
+typedef struct {
+    asn1SccT_UInt32 id;
+    asn1SccT_UInt8 len;
+    asn1SccCAN_Frame_data data;
+} asn1SccCAN_Frame;
+
+#define asn1SccCAN_Frame_REQUIRED_BYTES_FOR_ENCODING       13 
+#define asn1SccCAN_Frame_REQUIRED_BITS_FOR_ENCODING        104
+#define asn1SccCAN_Frame_REQUIRED_BYTES_FOR_ACN_ENCODING   13 
+#define asn1SccCAN_Frame_REQUIRED_BITS_FOR_ACN_ENCODING    104
+#define asn1SccCAN_Frame_REQUIRED_BYTES_FOR_XER_ENCODING   112
+
+void asn1SccCAN_Frame_Initialize(asn1SccCAN_Frame* pVal);
+flag asn1SccCAN_Frame_IsConstraintValid(const asn1SccCAN_Frame* val, int* pErrCode);
+
+
+typedef flag asn1SccT_Boolean;
+
+#define asn1SccT_Boolean_REQUIRED_BYTES_FOR_ENCODING       1 
+#define asn1SccT_Boolean_REQUIRED_BITS_FOR_ENCODING        1
+#define asn1SccT_Boolean_REQUIRED_BYTES_FOR_ACN_ENCODING   1 
+#define asn1SccT_Boolean_REQUIRED_BITS_FOR_ACN_ENCODING    1
+#define asn1SccT_Boolean_REQUIRED_BYTES_FOR_XER_ENCODING   36
+
+void asn1SccT_Boolean_Initialize(asn1SccT_Boolean* pVal);
+flag asn1SccT_Boolean_IsConstraintValid(const asn1SccT_Boolean* val, int* pErrCode);
+
+
  
 
 /* ================= Encoding/Decoding function prototypes =================
@@ -178,6 +198,18 @@ flag asn1SccLEON_UART_Configuration_IsConstraintValid(const asn1SccLEON_UART_Con
  * have been declared first, in case of parameterized ACN encodings
  * ========================================================================= */
 
+flag asn1SccUART_String_Encode(const asn1SccUART_String* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag asn1SccUART_String_Decode(asn1SccUART_String* pVal, BitStream* pBitStrm, int* pErrCode);
+flag asn1SccGPS_Status_Encode(const asn1SccGPS_Status* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag asn1SccGPS_Status_Decode(asn1SccGPS_Status* pVal, BitStream* pBitStrm, int* pErrCode);
+flag asn1SccCAN_Frame_data_Encode(const asn1SccCAN_Frame_data* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag asn1SccCAN_Frame_data_Decode(asn1SccCAN_Frame_data* pVal, BitStream* pBitStrm, int* pErrCode);
+flag asn1SccLEON_UART_Configuration_baud_Encode(const asn1SccLEON_UART_Configuration_baud* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag asn1SccLEON_UART_Configuration_baud_Decode(asn1SccLEON_UART_Configuration_baud* pVal, BitStream* pBitStrm, int* pErrCode);
+flag asn1SccLEON_UART_Configuration_console_id_Encode(const asn1SccLEON_UART_Configuration_console_id* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag asn1SccLEON_UART_Configuration_console_id_Decode(asn1SccLEON_UART_Configuration_console_id* pVal, BitStream* pBitStrm, int* pErrCode);
+flag asn1SccLEON_UART_Configuration_Encode(const asn1SccLEON_UART_Configuration* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag asn1SccLEON_UART_Configuration_Decode(asn1SccLEON_UART_Configuration* pVal, BitStream* pBitStrm, int* pErrCode);
 flag asn1SccT_Int32_Encode(const asn1SccT_Int32* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 flag asn1SccT_Int32_Decode(asn1SccT_Int32* pVal, BitStream* pBitStrm, int* pErrCode);
 flag asn1SccT_UInt32_Encode(const asn1SccT_UInt32* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
@@ -186,20 +218,10 @@ flag asn1SccT_Int8_Encode(const asn1SccT_Int8* val, BitStream* pBitStrm, int* pE
 flag asn1SccT_Int8_Decode(asn1SccT_Int8* pVal, BitStream* pBitStrm, int* pErrCode);
 flag asn1SccT_UInt8_Encode(const asn1SccT_UInt8* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
 flag asn1SccT_UInt8_Decode(asn1SccT_UInt8* pVal, BitStream* pBitStrm, int* pErrCode);
+flag asn1SccCAN_Frame_Encode(const asn1SccCAN_Frame* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
+flag asn1SccCAN_Frame_Decode(asn1SccCAN_Frame* pVal, BitStream* pBitStrm, int* pErrCode);
 flag asn1SccT_Boolean_Encode(const asn1SccT_Boolean* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag asn1SccT_Boolean_Decode(asn1SccT_Boolean* pVal, BitStream* pBitStrm, int* pErrCode);
-flag asn1SccTASTE_Boolean_Encode(const asn1SccTASTE_Boolean* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag asn1SccTASTE_Boolean_Decode(asn1SccTASTE_Boolean* pVal, BitStream* pBitStrm, int* pErrCode);
-flag asn1SccUART_String_Encode(const asn1SccUART_String* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag asn1SccUART_String_Decode(asn1SccUART_String* pVal, BitStream* pBitStrm, int* pErrCode);
-flag asn1SccGPS_Status_Encode(const asn1SccGPS_Status* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag asn1SccGPS_Status_Decode(asn1SccGPS_Status* pVal, BitStream* pBitStrm, int* pErrCode);
-flag asn1SccLEON_UART_Configuration_baud_Encode(const asn1SccLEON_UART_Configuration_baud* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag asn1SccLEON_UART_Configuration_baud_Decode(asn1SccLEON_UART_Configuration_baud* pVal, BitStream* pBitStrm, int* pErrCode);
-flag asn1SccLEON_UART_Configuration_console_id_Encode(const asn1SccLEON_UART_Configuration_console_id* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag asn1SccLEON_UART_Configuration_console_id_Decode(asn1SccLEON_UART_Configuration_console_id* pVal, BitStream* pBitStrm, int* pErrCode);
-flag asn1SccLEON_UART_Configuration_Encode(const asn1SccLEON_UART_Configuration* val, BitStream* pBitStrm, int* pErrCode, flag bCheckConstraints);
-flag asn1SccLEON_UART_Configuration_Decode(asn1SccLEON_UART_Configuration* pVal, BitStream* pBitStrm, int* pErrCode); 
+flag asn1SccT_Boolean_Decode(asn1SccT_Boolean* pVal, BitStream* pBitStrm, int* pErrCode); 
 
 
 #ifdef  __cplusplus

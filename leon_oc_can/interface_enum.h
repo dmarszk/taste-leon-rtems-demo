@@ -6,7 +6,7 @@
 */
 
 enum {
-    i_leon_uart_PI_txUartBytes = 0,
-    i_leon_uart_PI_tick = 1,
-    i_leon_uart_RI_rxUartBytes = 0
+    i_leon_oc_can_PI_txCanFrame = 0,
+    i_leon_oc_can_PI_tick = 1,
+    i_leon_oc_can_RI_rxCanFrame = 0
 };

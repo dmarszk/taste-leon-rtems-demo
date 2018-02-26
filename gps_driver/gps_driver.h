@@ -15,13 +15,13 @@ void gps_driver_startup();
 
 void gps_driver_PI_gpsGetStatus(asn1SccGPS_Status *);
 
-void gps_driver_PI_internalLoop();
+void gps_driver_PI_tick();
 
-extern void gps_driver_RI_txBytes(const asn1SccUART_String *,
-                                  const asn1SccT_UInt32 *);
+void gps_driver_PI_rxUartBytes(const asn1SccUART_String *,
+                               const asn1SccT_UInt32 *);
 
-extern void gps_driver_RI_rxBytes(const asn1SccT_UInt32 *,
-                                  asn1SccUART_String *);
+extern void gps_driver_RI_txUartBytes(const asn1SccUART_String *,
+                                      const asn1SccT_UInt32 *);
 
 #ifdef __cplusplus
 }

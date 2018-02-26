@@ -12,15 +12,15 @@ WITH interfaceview::IV::GPS_Driver;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
-SUBPROGRAM PI_internalLoop
+SUBPROGRAM PI_tick
 PROPERTIES
   Taste::Associated_Queue_Size => 1;
-END PI_internalLoop;
+END PI_tick;
 
-SUBPROGRAM IMPLEMENTATION PI_internalLoop.others
+SUBPROGRAM IMPLEMENTATION PI_tick.others
 PROPERTIES
   Compute_Execution_Time => 0 ms .. 0 ms;
-END PI_internalLoop.others;
+END PI_tick.others;
 
 SUBPROGRAM RI_gpsGetStatus
 FEATURES
@@ -34,12 +34,12 @@ END RI_gpsGetStatus.others;
 
 SYSTEM Manager
 FEATURES
-  PI_internalLoop : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Manager::PI_internalLoop.others {
+  PI_tick : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::Manager::PI_tick.others {
     Taste::coordinates => "46306 56545";
     Taste::RCMoperationKind => cyclic;
     Taste::RCMperiod => 1000 ms;
-    Taste::Deadline => 50 ms;
-    Taste::InterfaceName => "internalLoop";
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "tick";
   };
   RI_gpsGetStatus : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::GPS_Driver::PI_gpsGetStatus.others {
     Taste::coordinates => "70410 73361";
@@ -78,17 +78,17 @@ PROPERTIES
   Compute_Execution_Time => 0 ms .. 0 ms;
 END PI_gpsGetStatus.others;
 
-SUBPROGRAM PI_internalLoop
+SUBPROGRAM PI_tick
 PROPERTIES
   Taste::Associated_Queue_Size => 1;
-END PI_internalLoop;
+END PI_tick;
 
-SUBPROGRAM IMPLEMENTATION PI_internalLoop.others
+SUBPROGRAM IMPLEMENTATION PI_tick.others
 PROPERTIES
   Compute_Execution_Time => 0 ms .. 0 ms;
-END PI_internalLoop.others;
+END PI_tick.others;
 
-SUBPROGRAM RI_txBytes
+SUBPROGRAM PI_rxUartBytes
 FEATURES
   buf : IN PARAMETER DataView::UART_String {
     Taste::encoding => NATIVE;
@@ -96,50 +96,55 @@ FEATURES
   len : IN PARAMETER DataView::T_UInt32 {
     Taste::encoding => NATIVE;
   };
-END RI_txBytes;
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_rxUartBytes;
 
-SUBPROGRAM IMPLEMENTATION RI_txBytes.others
-END RI_txBytes.others;
+SUBPROGRAM IMPLEMENTATION PI_rxUartBytes.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_rxUartBytes.others;
 
-SUBPROGRAM RI_rxBytes
+SUBPROGRAM RI_txUartBytes
 FEATURES
-  buf : OUT PARAMETER DataView::UART_String {
+  buf : IN PARAMETER DataView::UART_String {
     Taste::encoding => NATIVE;
   };
   len : IN PARAMETER DataView::T_UInt32 {
     Taste::encoding => NATIVE;
   };
-END RI_rxBytes;
+END RI_txUartBytes;
 
-SUBPROGRAM IMPLEMENTATION RI_rxBytes.others
-END RI_rxBytes.others;
+SUBPROGRAM IMPLEMENTATION RI_txUartBytes.others
+END RI_txUartBytes.others;
 
 SYSTEM GPS_Driver
 FEATURES
   PI_gpsGetStatus : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::GPS_Driver::PI_gpsGetStatus.others {
-    Taste::coordinates => "98624 64534";
+    Taste::coordinates => "98624 64758";
     Taste::RCMoperationKind => unprotected;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "gpsGetStatus";
   };
-  PI_internalLoop : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::GPS_Driver::PI_internalLoop.others {
-    Taste::coordinates => "122802 51843";
+  PI_tick : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::GPS_Driver::PI_tick.others {
+    Taste::coordinates => "122802 52067";
     Taste::RCMoperationKind => cyclic;
     Taste::RCMperiod => 500 ms;
     Taste::Deadline => 0 ms;
-    Taste::InterfaceName => "internalLoop";
+    Taste::InterfaceName => "tick";
   };
-  RI_txBytes : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::LEON_UART::PI_txBytes.others {
-    Taste::coordinates => "165695 83426";
-    Taste::RCMoperationKind => any;
-    Taste::InterfaceName => "txBytes";
-    Taste::labelInheritance => "true";
+  PI_rxUartBytes : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::GPS_Driver::PI_rxUartBytes.others {
+    Taste::coordinates => "165695 67733";
+    Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "rxUartBytes";
   };
-  RI_rxBytes : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::LEON_UART::PI_rxBytes.others {
-    Taste::coordinates => "165695 62641";
+  RI_txUartBytes : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::LEON_UART::PI_txUartBytes.others {
+    Taste::coordinates => "165695 83650";
     Taste::RCMoperationKind => any;
-    Taste::InterfaceName => "rxBytes";
+    Taste::InterfaceName => "txUartBytes";
     Taste::labelInheritance => "true";
   };
 PROPERTIES
@@ -155,10 +160,11 @@ END interfaceview::IV::GPS_Driver;
 PACKAGE interfaceview::IV::LEON_UART
 PUBLIC
 
+WITH interfaceview::IV::GPS_Driver;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
-SUBPROGRAM PI_txBytes
+SUBPROGRAM PI_txUartBytes
 FEATURES
   buf : IN PARAMETER DataView::UART_String {
     Taste::encoding => NATIVE;
@@ -168,45 +174,57 @@ FEATURES
   };
 PROPERTIES
   Taste::Associated_Queue_Size => 1;
-END PI_txBytes;
+END PI_txUartBytes;
 
-SUBPROGRAM IMPLEMENTATION PI_txBytes.others
+SUBPROGRAM IMPLEMENTATION PI_txUartBytes.others
 PROPERTIES
   Compute_Execution_Time => 0 ms .. 0 ms;
-END PI_txBytes.others;
+END PI_txUartBytes.others;
 
-SUBPROGRAM PI_rxBytes
+SUBPROGRAM PI_tick
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_tick;
+
+SUBPROGRAM IMPLEMENTATION PI_tick.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_tick.others;
+
+SUBPROGRAM RI_rxUartBytes
 FEATURES
-  buf : OUT PARAMETER DataView::UART_String {
+  buf : IN PARAMETER DataView::UART_String {
     Taste::encoding => NATIVE;
   };
   len : IN PARAMETER DataView::T_UInt32 {
     Taste::encoding => NATIVE;
   };
-PROPERTIES
-  Taste::Associated_Queue_Size => 1;
-END PI_rxBytes;
+END RI_rxUartBytes;
 
-SUBPROGRAM IMPLEMENTATION PI_rxBytes.others
-PROPERTIES
-  Compute_Execution_Time => 0 ms .. 0 ms;
-END PI_rxBytes.others;
+SUBPROGRAM IMPLEMENTATION RI_rxUartBytes.others
+END RI_rxUartBytes.others;
 
 SYSTEM LEON_UART
 FEATURES
-  PI_txBytes : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::LEON_UART::PI_txBytes.others {
+  PI_txUartBytes : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::LEON_UART::PI_txUartBytes.others {
     Taste::coordinates => "200076 81310";
     Taste::RCMoperationKind => unprotected;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
-    Taste::InterfaceName => "txBytes";
+    Taste::InterfaceName => "txUartBytes";
   };
-  PI_rxBytes : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::LEON_UART::PI_rxBytes.others {
-    Taste::coordinates => "200076 61407";
-    Taste::RCMoperationKind => unprotected;
-    Taste::RCMperiod => 0 ms;
+  PI_tick : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::LEON_UART::PI_tick.others {
+    Taste::coordinates => "231408 56647";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 20 ms;
     Taste::Deadline => 0 ms;
-    Taste::InterfaceName => "rxBytes";
+    Taste::InterfaceName => "tick";
+  };
+  RI_rxUartBytes : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::GPS_Driver::PI_rxUartBytes.others {
+    Taste::coordinates => "200076 65599";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "rxUartBytes";
+    Taste::labelInheritance => "true";
   };
 PROPERTIES
   Source_Language => (Blackbox_device);
@@ -217,6 +235,9 @@ SYSTEM IMPLEMENTATION LEON_UART.others
 SUBCOMPONENTS
   driver_configuration : DATA DataView::LEON_UART_Configuration {
     Taste::FS_Default_Value => "{console-id 1, baud 19200}";
+  };
+  extraCompileFlags : DATA DataView::TASTE_Directive {
+    Taste::FS_Default_Value => "compiler-option:""-I $PRJ_DIR/libs/install/include/""";
   };
 END LEON_UART.others;
 
@@ -239,8 +260,10 @@ END PI_dummy.others;
 SYSTEM SystemInit
 FEATURES
   PI_dummy : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::SystemInit::PI_dummy.others {
-    Taste::coordinates => "238062 20756";
-    Taste::RCMoperationKind => unprotected;
+    Taste::coordinates => "238062 20532";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 100000 ms;
+    Taste::Deadline => 0 ms;
     Taste::InterfaceName => "dummy";
   };
 PROPERTIES
@@ -253,6 +276,12 @@ SUBCOMPONENTS
   console_configuration : DATA DataView::LEON_UART_Configuration {
     Taste::FS_Default_Value => "{console-id 0, baud 115200}";
   };
+  extraCompileFlags : DATA DataView::TASTE_Directive {
+    Taste::FS_Default_Value => "compiler-option:""-I $PRJ_DIR/libs/install/include/""";
+  };
+  extraLinkFlags : DATA DataView::TASTE_Directive {
+    Taste::FS_Default_Value => "linker-option:""-L $PRJ_DIR/libs/install/lib/ -lutil""";
+  };
 END SystemInit.others;
 
 END interfaceview::IV::SystemInit;
@@ -260,18 +289,17 @@ END interfaceview::IV::SystemInit;
 PACKAGE interfaceview::IV::LEON_OC_CAN
 PUBLIC
 
+WITH interfaceview::IV::CAN_Protocol_Impl;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
-SUBPROGRAM PI_rxCanFrame
-END PI_rxCanFrame;
-
-SUBPROGRAM IMPLEMENTATION PI_rxCanFrame.others
-PROPERTIES
-  Compute_Execution_Time => 0 ms .. 0 ms;
-END PI_rxCanFrame.others;
-
 SUBPROGRAM PI_txCanFrame
+FEATURES
+  frame : IN PARAMETER DataView::CAN_Frame {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
 END PI_txCanFrame;
 
 SUBPROGRAM IMPLEMENTATION PI_txCanFrame.others
@@ -279,20 +307,50 @@ PROPERTIES
   Compute_Execution_Time => 0 ms .. 0 ms;
 END PI_txCanFrame.others;
 
+SUBPROGRAM PI_tick
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_tick;
+
+SUBPROGRAM IMPLEMENTATION PI_tick.others
+PROPERTIES
+  Compute_Execution_Time => 0 ms .. 0 ms;
+END PI_tick.others;
+
+SUBPROGRAM RI_rxCanFrame
+FEATURES
+  frame : IN PARAMETER DataView::CAN_Frame {
+    Taste::encoding => NATIVE;
+  };
+END RI_rxCanFrame;
+
+SUBPROGRAM IMPLEMENTATION RI_rxCanFrame.others
+END RI_rxCanFrame.others;
+
 SYSTEM LEON_OC_CAN
 FEATURES
-  PI_rxCanFrame : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::LEON_OC_CAN::PI_rxCanFrame.others {
-    Taste::coordinates => "197330 116433";
-    Taste::RCMoperationKind => unprotected;
-    Taste::InterfaceName => "rxCanFrame";
-  };
   PI_txCanFrame : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::LEON_OC_CAN::PI_txCanFrame.others {
-    Taste::coordinates => "197330 132750";
+    Taste::coordinates => "199878 132750";
     Taste::RCMoperationKind => unprotected;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
     Taste::InterfaceName => "txCanFrame";
   };
+  PI_tick : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::LEON_OC_CAN::PI_tick.others {
+    Taste::coordinates => "230900 107368";
+    Taste::RCMoperationKind => cyclic;
+    Taste::RCMperiod => 4 ms;
+    Taste::Deadline => 0 ms;
+    Taste::InterfaceName => "tick";
+  };
+  RI_rxCanFrame : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::CAN_Protocol_Impl::PI_rxCanFrame.others {
+    Taste::coordinates => "199878 118558";
+    Taste::RCMoperationKind => any;
+    Taste::InterfaceName => "rxCanFrame";
+    Taste::labelInheritance => "true";
+  };
 PROPERTIES
-  Source_Language => (C);
+  Source_Language => (Blackbox_device);
   Taste::Active_Interfaces => any;
 END LEON_OC_CAN;
 
@@ -301,61 +359,48 @@ END LEON_OC_CAN.others;
 
 END interfaceview::IV::LEON_OC_CAN;
 
-PACKAGE interfaceview::IV::CAN_Fragmentation_Transceiver
+PACKAGE interfaceview::IV::CAN_Protocol_Impl
 PUBLIC
 
 WITH interfaceview::IV::LEON_OC_CAN;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
-SUBPROGRAM PI_rxSpacePacket
-END PI_rxSpacePacket;
+SUBPROGRAM PI_rxCanFrame
+FEATURES
+  frame : IN PARAMETER DataView::CAN_Frame {
+    Taste::encoding => NATIVE;
+  };
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
+END PI_rxCanFrame;
 
-SUBPROGRAM IMPLEMENTATION PI_rxSpacePacket.others
+SUBPROGRAM IMPLEMENTATION PI_rxCanFrame.others
 PROPERTIES
   Compute_Execution_Time => 0 ms .. 0 ms;
-END PI_rxSpacePacket.others;
-
-SUBPROGRAM PI_txSpacePacket
-END PI_txSpacePacket;
-
-SUBPROGRAM IMPLEMENTATION PI_txSpacePacket.others
-PROPERTIES
-  Compute_Execution_Time => 0 ms .. 0 ms;
-END PI_txSpacePacket.others;
-
-SUBPROGRAM RI_rxCanFrame
-END RI_rxCanFrame;
-
-SUBPROGRAM IMPLEMENTATION RI_rxCanFrame.others
-END RI_rxCanFrame.others;
+END PI_rxCanFrame.others;
 
 SUBPROGRAM RI_txCanFrame
+FEATURES
+  frame : IN PARAMETER DataView::CAN_Frame {
+    Taste::encoding => NATIVE;
+  };
 END RI_txCanFrame;
 
 SUBPROGRAM IMPLEMENTATION RI_txCanFrame.others
 END RI_txCanFrame.others;
 
-SYSTEM CAN_Fragmentation_Transceiver
+SYSTEM CAN_Protocol_Impl
 FEATURES
-  PI_rxSpacePacket : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::CAN_Fragmentation_Transceiver::PI_rxSpacePacket.others {
-    Taste::coordinates => "106233 118484";
+  PI_rxCanFrame : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::CAN_Protocol_Impl::PI_rxCanFrame.others {
+    Taste::coordinates => "163832 118761";
     Taste::RCMoperationKind => unprotected;
-    Taste::InterfaceName => "rxSpacePacket";
-  };
-  PI_txSpacePacket : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::CAN_Fragmentation_Transceiver::PI_txSpacePacket.others {
-    Taste::coordinates => "106233 133265";
-    Taste::RCMoperationKind => unprotected;
-    Taste::InterfaceName => "txSpacePacket";
-  };
-  RI_rxCanFrame : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::LEON_OC_CAN::PI_rxCanFrame.others {
-    Taste::coordinates => "163323 116288";
-    Taste::RCMoperationKind => any;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
     Taste::InterfaceName => "rxCanFrame";
-    Taste::labelInheritance => "true";
   };
   RI_txCanFrame : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::LEON_OC_CAN::PI_txCanFrame.others {
-    Taste::coordinates => "163323 133297";
+    Taste::coordinates => "163832 131294";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "txCanFrame";
     Taste::labelInheritance => "true";
@@ -363,55 +408,12 @@ FEATURES
 PROPERTIES
   Source_Language => (C);
   Taste::Active_Interfaces => any;
-END CAN_Fragmentation_Transceiver;
+END CAN_Protocol_Impl;
 
-SYSTEM IMPLEMENTATION CAN_Fragmentation_Transceiver.others
-END CAN_Fragmentation_Transceiver.others;
+SYSTEM IMPLEMENTATION CAN_Protocol_Impl.others
+END CAN_Protocol_Impl.others;
 
-END interfaceview::IV::CAN_Fragmentation_Transceiver;
-
-PACKAGE interfaceview::IV::Onboard_TTC_stack
-PUBLIC
-
-WITH interfaceview::IV::CAN_Fragmentation_Transceiver;
-WITH Taste;
-WITH DataView;
-WITH TASTE_IV_Properties;
-SUBPROGRAM RI_rxSpacePacket
-END RI_rxSpacePacket;
-
-SUBPROGRAM IMPLEMENTATION RI_rxSpacePacket.others
-END RI_rxSpacePacket.others;
-
-SUBPROGRAM RI_txSpacePacket
-END RI_txSpacePacket;
-
-SUBPROGRAM IMPLEMENTATION RI_txSpacePacket.others
-END RI_txSpacePacket.others;
-
-SYSTEM Onboard_TTC_stack
-FEATURES
-  RI_rxSpacePacket : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::CAN_Fragmentation_Transceiver::PI_rxSpacePacket.others {
-    Taste::coordinates => "69891 112705";
-    Taste::RCMoperationKind => any;
-    Taste::InterfaceName => "rxSpacePacket";
-    Taste::labelInheritance => "true";
-  };
-  RI_txSpacePacket : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::CAN_Fragmentation_Transceiver::PI_txSpacePacket.others {
-    Taste::coordinates => "69891 126016";
-    Taste::RCMoperationKind => any;
-    Taste::InterfaceName => "txSpacePacket";
-    Taste::labelInheritance => "true";
-  };
-PROPERTIES
-  Source_Language => (C);
-  Taste::Active_Interfaces => any;
-END Onboard_TTC_stack;
-
-SYSTEM IMPLEMENTATION Onboard_TTC_stack.others
-END Onboard_TTC_stack.others;
-
-END interfaceview::IV::Onboard_TTC_stack;
+END interfaceview::IV::CAN_Protocol_Impl;
 
 PACKAGE interfaceview::IV
 PUBLIC
@@ -421,8 +423,7 @@ WITH interfaceview::IV::GPS_Driver;
 WITH interfaceview::IV::LEON_UART;
 WITH interfaceview::IV::SystemInit;
 WITH interfaceview::IV::LEON_OC_CAN;
-WITH interfaceview::IV::CAN_Fragmentation_Transceiver;
-WITH interfaceview::IV::Onboard_TTC_stack;
+WITH interfaceview::IV::CAN_Protocol_Impl;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
@@ -435,44 +436,35 @@ SUBCOMPONENTS
     Taste::coordinates => "31707 56545 70410 78199";
   };
   GPS_Driver : SYSTEM interfaceview::IV::GPS_Driver::GPS_Driver.others {
-    Taste::coordinates => "98624 51843 165695 88466";
+    Taste::coordinates => "98624 52067 165695 88690";
   };
   LEON_UART : SYSTEM interfaceview::IV::LEON_UART::LEON_UART.others {
     Taste::coordinates => "200076 56647 257075 88243";
   };
   SystemInit : SYSTEM interfaceview::IV::SystemInit::SystemInit.others {
-    Taste::coordinates => "215458 5538 250147 20756";
+    Taste::coordinates => "215458 5314 250147 20532";
   };
   LEON_OC_CAN : SYSTEM interfaceview::IV::LEON_OC_CAN::LEON_OC_CAN.others {
-    Taste::coordinates => "197330 107368 257757 141833";
+    Taste::coordinates => "199878 107368 257757 141833";
   };
-  CAN_Fragmentation_Transceiver : SYSTEM interfaceview::IV::CAN_Fragmentation_Transceiver::CAN_Fragmentation_Transceiver.others {
-    Taste::coordinates => "106233 109350 163323 139563";
-  };
-  Onboard_TTC_stack : SYSTEM interfaceview::IV::Onboard_TTC_stack::Onboard_TTC_stack.others {
-    Taste::coordinates => "31459 109258 69891 130105";
+  CAN_Protocol_Impl : SYSTEM interfaceview::IV::CAN_Protocol_Impl::CAN_Protocol_Impl.others {
+    Taste::coordinates => "102287 112047 163832 137560";
   };
 CONNECTIONS
   GPS_Driver_PI_gpsGetStatus_Manager_RI_gpsGetStatus : SUBPROGRAM ACCESS GPS_Driver.PI_gpsGetStatus -> Manager.RI_gpsGetStatus {
-    Taste::coordinates => "70410 73361 74642 73361 74642 64534 98624 64534";
+    Taste::coordinates => "70410 73361 74642 73361 74642 64758 98624 64758";
   };
-  LEON_UART_PI_txBytes_GPS_Driver_RI_txBytes : SUBPROGRAM ACCESS LEON_UART.PI_txBytes -> GPS_Driver.RI_txBytes {
-    Taste::coordinates => "165695 83426 193047 83426 193047 81310 200076 81310";
+  GPS_Driver_PI_rxUartBytes_LEON_UART_RI_rxUartBytes : SUBPROGRAM ACCESS GPS_Driver.PI_rxUartBytes -> LEON_UART.RI_rxUartBytes {
+    Taste::coordinates => "200076 65599 182885 65599 182885 67733 165695 67733";
   };
-  LEON_UART_PI_rxBytes_GPS_Driver_RI_rxBytes : SUBPROGRAM ACCESS LEON_UART.PI_rxBytes -> GPS_Driver.RI_rxBytes {
-    Taste::coordinates => "165695 62641 193047 62641 193047 61407 200076 61407";
+  LEON_UART_PI_txUartBytes_GPS_Driver_RI_txUartBytes : SUBPROGRAM ACCESS LEON_UART.PI_txUartBytes -> GPS_Driver.RI_txUartBytes {
+    Taste::coordinates => "165695 83650 193047 83650 193047 81310 200076 81310";
   };
-  LEON_OC_CAN_PI_rxCanFrame_CAN_Fragmentation_Transceiver_RI_rxCanFrame : SUBPROGRAM ACCESS LEON_OC_CAN.PI_rxCanFrame -> CAN_Fragmentation_Transceiver.RI_rxCanFrame {
-    Taste::coordinates => "163323 116288 178200 116288 178200 116433 197330 116433";
+  LEON_OC_CAN_PI_txCanFrame_CAN_Protocol_Impl_RI_txCanFrame : SUBPROGRAM ACCESS LEON_OC_CAN.PI_txCanFrame -> CAN_Protocol_Impl.RI_txCanFrame {
+    Taste::coordinates => "163832 131294 180469 131294 180469 132750 199878 132750";
   };
-  LEON_OC_CAN_PI_txCanFrame_CAN_Fragmentation_Transceiver_RI_txCanFrame : SUBPROGRAM ACCESS LEON_OC_CAN.PI_txCanFrame -> CAN_Fragmentation_Transceiver.RI_txCanFrame {
-    Taste::coordinates => "163323 133297 178200 133297 178200 132750 197330 132750";
-  };
-  CAN_Fragmentation_Transceiver_PI_rxSpacePacket_Onboard_TTC_stack_RI_rxSpacePacket : SUBPROGRAM ACCESS CAN_Fragmentation_Transceiver.PI_rxSpacePacket -> Onboard_TTC_stack.RI_rxSpacePacket {
-    Taste::coordinates => "69891 112705 93331 112705 93331 118484 106233 118484";
-  };
-  CAN_Fragmentation_Transceiver_PI_txSpacePacket_Onboard_TTC_stack_RI_txSpacePacket : SUBPROGRAM ACCESS CAN_Fragmentation_Transceiver.PI_txSpacePacket -> Onboard_TTC_stack.RI_txSpacePacket {
-    Taste::coordinates => "69891 126016 93299 126016 93299 133265 106233 133265";
+  CAN_Protocol_Impl_PI_rxCanFrame_LEON_OC_CAN_RI_rxCanFrame : SUBPROGRAM ACCESS CAN_Protocol_Impl.PI_rxCanFrame -> LEON_OC_CAN.RI_rxCanFrame {
+    Taste::coordinates => "199878 118558 180469 118558 180469 118761 163832 118761";
   };
 END interfaceview.others;
 

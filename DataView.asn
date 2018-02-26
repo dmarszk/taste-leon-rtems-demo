@@ -2,9 +2,7 @@ TASTE-Dataview DEFINITIONS ::=
 BEGIN
 IMPORTS T-Int32, T-UInt32, T-Int8, T-UInt8, T-Boolean FROM TASTE-BasicTypes;
 
-TASTE-Boolean ::= BOOLEAN
-
-UART-String    ::= OCTET STRING (SIZE (255))
+UART-String    ::= OCTET STRING (SIZE (384))
 
 GPS-Status      ::= ENUMERATED { offline, no-position-fix, valid-position-fix } 
 
@@ -13,38 +11,18 @@ LEON-UART-Configuration ::= SEQUENCE {
 	baud INTEGER(0..921600)
 }
 
--- ASN.1 Type definitions must start with an uppercase
--- Field names in records (SEQUENCE) must start with a lowercase
--- Underscores are not allowed: use dash (hyphen) 
-
--- Simple types:
-
--- MyInteger   ::= INTEGER (0..255)
--- MyReal      ::= REAL (0.0 .. 1000.0)
--- MyBool      ::= BOOLEAN
--- MyEnum      ::= ENUMERATED { hello, world, how-are-you }
-
--- Complex types:
-
---  MySeq       ::= SEQUENCE {
---      input-data  MyInteger,
---      output-data MyInteger,
---      validity    ENUMERATED { valid, invalid }
---  }
---
---  MyChoice    ::= CHOICE {
---      a BOOLEAN,
---      b MySeq
---  }
---
---  MySeqOf     ::= SEQUENCE (SIZE (2)) OF MyEnum
---
---  MyOctStr    ::= OCTET STRING (SIZE (3))
---
---  -- You can also declare constants
---  myVar       MySeqOf     ::= { hello, world }
+CAN-Frame ::= SEQUENCE {
+	id T-UInt32, -- 11 or 29 bit identifier 
+	len T-UInt8,
+	data OCTET STRING (SIZE (8))
+}
 
 END
+
+
+
+
+
 
 
 

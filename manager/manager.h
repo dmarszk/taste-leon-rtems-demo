@@ -13,7 +13,7 @@ extern "C" {
 
 void manager_startup();
 
-void manager_PI_internalLoop();
+void manager_PI_tick();
 
 extern void manager_RI_gpsGetStatus(asn1SccGPS_Status *);
 

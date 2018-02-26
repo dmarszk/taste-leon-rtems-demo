@@ -1,22 +1,22 @@
-isComponentType('interfaceview::FV::Manager','PUBLIC','PI_internalLoop','SUBPROGRAM','NIL','').
-isComponentImplementation('interfaceview::FV::Manager','PUBLIC','PI_internalLoop','others','SUBPROGRAM','NIL','others','').
-isFeature('ACCESS','interfaceview::IV','Manager','PI_internalLoop','PROVIDES','SUBPROGRAM','interfaceview::FV::Manager::PI_internalLoop.others','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::FV::Manager','PI_internalLoop','NIL','NIL','Taste::Associated_Queue_Size','1','').
-isProperty('NIL','=>','interfaceview::IV','Manager','NIL','PI_internalLoop','Taste::coordinates','"39816 35955"','').
-isProperty('NIL','=>','interfaceview::IV','Manager','NIL','PI_internalLoop','Taste::RCMoperationKind','cyclic','').
-isProperty('NIL','=>','interfaceview::IV','Manager','NIL','PI_internalLoop','Taste::RCMperiod','1000 ms','').
-isProperty('NIL','=>','interfaceview::IV','Manager','NIL','PI_internalLoop','Taste::Deadline','50 ms','').
-isProperty('NIL','=>','interfaceview::IV','Manager','NIL','PI_internalLoop','Taste::InterfaceName','"internalLoop"','').
-isProperty('NIL','=>','interfaceview::FV::Manager','PI_internalLoop','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
-isSubcomponent('interfaceview::IV','Manager','others','internalLoop_impl','SUBPROGRAM','interfaceview::FV::Manager::PI_internalLoop.others','NIL','NIL','').
-isConnection('SUBPROGRAM ACCESS','interfaceview::IV','Manager','others','OpToPICnx_internalLoop_impl','internalLoop_impl','->','PI_internalLoop','NIL','').
+isComponentType('interfaceview::FV::Manager','PUBLIC','PI_tick','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::Manager','PUBLIC','PI_tick','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','Manager','PI_tick','PROVIDES','SUBPROGRAM','interfaceview::FV::Manager::PI_tick.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::Manager','PI_tick','NIL','NIL','Taste::Associated_Queue_Size','1','').
+isProperty('NIL','=>','interfaceview::IV','Manager','NIL','PI_tick','Taste::coordinates','"46306 56545"','').
+isProperty('NIL','=>','interfaceview::IV','Manager','NIL','PI_tick','Taste::RCMoperationKind','cyclic','').
+isProperty('NIL','=>','interfaceview::IV','Manager','NIL','PI_tick','Taste::RCMperiod','1000 ms','').
+isProperty('NIL','=>','interfaceview::IV','Manager','NIL','PI_tick','Taste::Deadline','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','Manager','NIL','PI_tick','Taste::InterfaceName','"tick"','').
+isProperty('NIL','=>','interfaceview::FV::Manager','PI_tick','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
+isSubcomponent('interfaceview::IV','Manager','others','tick_impl','SUBPROGRAM','interfaceview::FV::Manager::PI_tick.others','NIL','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','Manager','others','OpToPICnx_tick_impl','tick_impl','->','PI_tick','NIL','').
 isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','GPS_Driver_PI_gpsGetStatus_Manager_RI_gpsGetStatus','GPS_Driver.PI_gpsGetStatus','->','Manager.RI_gpsGetStatus','NIL','').
-isProperty('NIL','=>','interfaceview::IV','interfaceview','others','GPS_Driver_PI_gpsGetStatus_Manager_RI_gpsGetStatus','Taste::coordinates','"63920 52771 74642 52771 74642 41483 85365 41483"','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','GPS_Driver_PI_gpsGetStatus_Manager_RI_gpsGetStatus','Taste::coordinates','"70410 73361 74642 73361 74642 64758 98624 64758"','').
 isComponentType('interfaceview::FV::Manager','PUBLIC','RI_gpsGetStatus','SUBPROGRAM','NIL','').
 isComponentImplementation('interfaceview::FV::Manager','PUBLIC','RI_gpsGetStatus','others','SUBPROGRAM','NIL','others','').
 isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::GPS_Driver','').
 isFeature('ACCESS','interfaceview::IV','Manager','RI_gpsGetStatus','REQUIRES','SUBPROGRAM','interfaceview::FV::GPS_Driver::PI_gpsGetStatus.others','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::IV','Manager','NIL','RI_gpsGetStatus','Taste::coordinates','"63920 52771"','').
+isProperty('NIL','=>','interfaceview::IV','Manager','NIL','RI_gpsGetStatus','Taste::coordinates','"70410 73361"','').
 isProperty('NIL','=>','interfaceview::IV','Manager','NIL','RI_gpsGetStatus','Taste::RCMoperationKind','any','').
 isProperty('NIL','=>','interfaceview::IV','Manager','NIL','RI_gpsGetStatus','Taste::InterfaceName','"gpsGetStatus"','').
 isProperty('NIL','=>','interfaceview::IV','Manager','NIL','RI_gpsGetStatus','Taste::labelInheritance','"true"','').
@@ -27,7 +27,7 @@ isComponentType('interfaceview::IV','PUBLIC','Manager','SYSTEM','NIL','').
 isComponentImplementation('interfaceview::IV','PUBLIC','Manager','others','SYSTEM','NIL','others','').
 isProperty('NIL','=>','interfaceview::IV','Manager','NIL','NIL','Source_Language','(C)','').
 isProperty('NIL','=>','interfaceview::IV','Manager','NIL','NIL','Taste::Active_Interfaces','any','').
-isProperty('NIL','=>','interfaceview::IV','interfaceview','others','Manager','Taste::coordinates','"12516 35955 63920 57609"','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','Manager','Taste::coordinates','"31707 56545 70410 78199"','').
 isSubcomponent('interfaceview::IV','interfaceview','others','Manager','SYSTEM','interfaceview::IV::Manager.others','NIL','NIL','').
 isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::Manager','').
 isImportDeclaration('interfaceview::IV','PUBLIC','Taste','').
@@ -40,7 +40,7 @@ isComponentType('interfaceview::FV::GPS_Driver','PUBLIC','PI_gpsGetStatus','SUBP
 isComponentImplementation('interfaceview::FV::GPS_Driver','PUBLIC','PI_gpsGetStatus','others','SUBPROGRAM','NIL','others','').
 isFeature('ACCESS','interfaceview::IV','GPS_Driver','PI_gpsGetStatus','PROVIDES','SUBPROGRAM','interfaceview::FV::GPS_Driver::PI_gpsGetStatus.others','NIL','NIL','').
 isProperty('NIL','=>','interfaceview::FV::GPS_Driver','PI_gpsGetStatus','NIL','NIL','Taste::Associated_Queue_Size','1','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_gpsGetStatus','Taste::coordinates','"85365 41483"','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_gpsGetStatus','Taste::coordinates','"98624 64758"','').
 isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_gpsGetStatus','Taste::RCMoperationKind','unprotected','').
 isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_gpsGetStatus','Taste::RCMperiod','0 ms','').
 isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_gpsGetStatus','Taste::Deadline','0 ms','').
@@ -50,108 +50,126 @@ isProperty('NIL','=>','interfaceview::FV::GPS_Driver','PI_gpsGetStatus','NIL','s
 isProperty('NIL','=>','interfaceview::FV::GPS_Driver','PI_gpsGetStatus','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
 isSubcomponent('interfaceview::IV','GPS_Driver','others','gpsGetStatus_impl','SUBPROGRAM','interfaceview::FV::GPS_Driver::PI_gpsGetStatus.others','NIL','NIL','').
 isConnection('SUBPROGRAM ACCESS','interfaceview::IV','GPS_Driver','others','OpToPICnx_gpsGetStatus_impl','gpsGetStatus_impl','->','PI_gpsGetStatus','NIL','').
-isComponentType('interfaceview::FV::GPS_Driver','PUBLIC','PI_internalLoop','SUBPROGRAM','NIL','').
-isComponentImplementation('interfaceview::FV::GPS_Driver','PUBLIC','PI_internalLoop','others','SUBPROGRAM','NIL','others','').
-isFeature('ACCESS','interfaceview::IV','GPS_Driver','PI_internalLoop','PROVIDES','SUBPROGRAM','interfaceview::FV::GPS_Driver::PI_internalLoop.others','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::FV::GPS_Driver','PI_internalLoop','NIL','NIL','Taste::Associated_Queue_Size','1','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_internalLoop','Taste::coordinates','"118997 28792"','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_internalLoop','Taste::RCMoperationKind','cyclic','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_internalLoop','Taste::RCMperiod','500 ms','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_internalLoop','Taste::Deadline','0 ms','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_internalLoop','Taste::InterfaceName','"internalLoop"','').
-isProperty('NIL','=>','interfaceview::FV::GPS_Driver','PI_internalLoop','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
-isSubcomponent('interfaceview::IV','GPS_Driver','others','internalLoop_impl','SUBPROGRAM','interfaceview::FV::GPS_Driver::PI_internalLoop.others','NIL','NIL','').
-isConnection('SUBPROGRAM ACCESS','interfaceview::IV','GPS_Driver','others','OpToPICnx_internalLoop_impl','internalLoop_impl','->','PI_internalLoop','NIL','').
-isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','LEON_UART_PI_txBytes_GPS_Driver_RI_txBytes','LEON_UART.PI_txBytes','->','GPS_Driver.RI_txBytes','NIL','').
-isProperty('NIL','=>','interfaceview::IV','interfaceview','others','LEON_UART_PI_txBytes_GPS_Driver_RI_txBytes','Taste::coordinates','"161890 60375 193047 60375 193047 60049 196496 60049"','').
-isComponentType('interfaceview::FV::GPS_Driver','PUBLIC','RI_txBytes','SUBPROGRAM','NIL','').
-isComponentImplementation('interfaceview::FV::GPS_Driver','PUBLIC','RI_txBytes','others','SUBPROGRAM','NIL','others','').
+isComponentType('interfaceview::FV::GPS_Driver','PUBLIC','PI_tick','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::GPS_Driver','PUBLIC','PI_tick','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','GPS_Driver','PI_tick','PROVIDES','SUBPROGRAM','interfaceview::FV::GPS_Driver::PI_tick.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::GPS_Driver','PI_tick','NIL','NIL','Taste::Associated_Queue_Size','1','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_tick','Taste::coordinates','"122802 52067"','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_tick','Taste::RCMoperationKind','cyclic','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_tick','Taste::RCMperiod','500 ms','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_tick','Taste::Deadline','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_tick','Taste::InterfaceName','"tick"','').
+isProperty('NIL','=>','interfaceview::FV::GPS_Driver','PI_tick','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
+isSubcomponent('interfaceview::IV','GPS_Driver','others','tick_impl','SUBPROGRAM','interfaceview::FV::GPS_Driver::PI_tick.others','NIL','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','GPS_Driver','others','OpToPICnx_tick_impl','tick_impl','->','PI_tick','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','GPS_Driver_PI_rxUartBytes_LEON_UART_RI_rxUartBytes','GPS_Driver.PI_rxUartBytes','->','LEON_UART.RI_rxUartBytes','NIL','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','GPS_Driver_PI_rxUartBytes_LEON_UART_RI_rxUartBytes','Taste::coordinates','"200076 65599 182885 65599 182885 67733 165695 67733"','').
+isComponentType('interfaceview::FV::GPS_Driver','PUBLIC','PI_rxUartBytes','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::GPS_Driver','PUBLIC','PI_rxUartBytes','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','GPS_Driver','PI_rxUartBytes','PROVIDES','SUBPROGRAM','interfaceview::FV::GPS_Driver::PI_rxUartBytes.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::GPS_Driver','PI_rxUartBytes','NIL','NIL','Taste::Associated_Queue_Size','1','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_rxUartBytes','Taste::coordinates','"165695 67733"','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_rxUartBytes','Taste::RCMoperationKind','unprotected','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_rxUartBytes','Taste::RCMperiod','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_rxUartBytes','Taste::Deadline','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','PI_rxUartBytes','Taste::InterfaceName','"rxUartBytes"','').
+isFeature('PARAMETER','interfaceview::FV::GPS_Driver','PI_rxUartBytes','buf','IN','NIL','DataView::UART_String','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::GPS_Driver','PI_rxUartBytes','NIL','buf','Taste::encoding','NATIVE','').
+isFeature('PARAMETER','interfaceview::FV::GPS_Driver','PI_rxUartBytes','len','IN','NIL','DataView::T_UInt32','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::GPS_Driver','PI_rxUartBytes','NIL','len','Taste::encoding','NATIVE','').
+isProperty('NIL','=>','interfaceview::FV::GPS_Driver','PI_rxUartBytes','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
+isSubcomponent('interfaceview::IV','GPS_Driver','others','rxUartBytes_impl','SUBPROGRAM','interfaceview::FV::GPS_Driver::PI_rxUartBytes.others','NIL','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','GPS_Driver','others','OpToPICnx_rxUartBytes_impl','rxUartBytes_impl','->','PI_rxUartBytes','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','LEON_UART_PI_txUartBytes_GPS_Driver_RI_txUartBytes','LEON_UART.PI_txUartBytes','->','GPS_Driver.RI_txUartBytes','NIL','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','LEON_UART_PI_txUartBytes_GPS_Driver_RI_txUartBytes','Taste::coordinates','"165695 83650 193047 83650 193047 81310 200076 81310"','').
+isComponentType('interfaceview::FV::GPS_Driver','PUBLIC','RI_txUartBytes','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::GPS_Driver','PUBLIC','RI_txUartBytes','others','SUBPROGRAM','NIL','others','').
 isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::LEON_UART','').
-isFeature('ACCESS','interfaceview::IV','GPS_Driver','RI_txBytes','REQUIRES','SUBPROGRAM','interfaceview::FV::LEON_UART::PI_txBytes.others','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','RI_txBytes','Taste::coordinates','"161890 60375"','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','RI_txBytes','Taste::RCMoperationKind','any','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','RI_txBytes','Taste::InterfaceName','"txBytes"','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','RI_txBytes','Taste::labelInheritance','"true"','').
-isFeature('PARAMETER','interfaceview::FV::GPS_Driver','RI_txBytes','buf','IN','NIL','DataView::UART_String','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::FV::GPS_Driver','RI_txBytes','NIL','buf','Taste::encoding','NATIVE','').
-isFeature('PARAMETER','interfaceview::FV::GPS_Driver','RI_txBytes','len','IN','NIL','DataView::T_UInt32','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::FV::GPS_Driver','RI_txBytes','NIL','len','Taste::encoding','NATIVE','').
-isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','LEON_UART_PI_rxBytes_GPS_Driver_RI_rxBytes','LEON_UART.PI_rxBytes','->','GPS_Driver.RI_rxBytes','NIL','').
-isProperty('NIL','=>','interfaceview::IV','interfaceview','others','LEON_UART_PI_rxBytes_GPS_Driver_RI_rxBytes','Taste::coordinates','"161890 39590 193047 39590 193047 40146 196496 40146"','').
-isComponentType('interfaceview::FV::GPS_Driver','PUBLIC','RI_rxBytes','SUBPROGRAM','NIL','').
-isComponentImplementation('interfaceview::FV::GPS_Driver','PUBLIC','RI_rxBytes','others','SUBPROGRAM','NIL','others','').
-isFeature('ACCESS','interfaceview::IV','GPS_Driver','RI_rxBytes','REQUIRES','SUBPROGRAM','interfaceview::FV::LEON_UART::PI_rxBytes.others','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','RI_rxBytes','Taste::coordinates','"161890 39590"','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','RI_rxBytes','Taste::RCMoperationKind','any','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','RI_rxBytes','Taste::InterfaceName','"rxBytes"','').
-isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','RI_rxBytes','Taste::labelInheritance','"true"','').
-isFeature('PARAMETER','interfaceview::FV::GPS_Driver','RI_rxBytes','buf','OUT','NIL','DataView::UART_String','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::FV::GPS_Driver','RI_rxBytes','NIL','buf','Taste::encoding','NATIVE','').
-isFeature('PARAMETER','interfaceview::FV::GPS_Driver','RI_rxBytes','len','IN','NIL','DataView::T_UInt32','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::FV::GPS_Driver','RI_rxBytes','NIL','len','Taste::encoding','NATIVE','').
+isFeature('ACCESS','interfaceview::IV','GPS_Driver','RI_txUartBytes','REQUIRES','SUBPROGRAM','interfaceview::FV::LEON_UART::PI_txUartBytes.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','RI_txUartBytes','Taste::coordinates','"165695 83650"','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','RI_txUartBytes','Taste::RCMoperationKind','any','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','RI_txUartBytes','Taste::InterfaceName','"txUartBytes"','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','RI_txUartBytes','Taste::labelInheritance','"true"','').
+isFeature('PARAMETER','interfaceview::FV::GPS_Driver','RI_txUartBytes','buf','IN','NIL','DataView::UART_String','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::GPS_Driver','RI_txUartBytes','NIL','buf','Taste::encoding','NATIVE','').
+isFeature('PARAMETER','interfaceview::FV::GPS_Driver','RI_txUartBytes','len','IN','NIL','DataView::T_UInt32','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::GPS_Driver','RI_txUartBytes','NIL','len','Taste::encoding','NATIVE','').
 isPackage('interfaceview::FV::GPS_Driver','PUBLIC','').
 isComponentType('interfaceview::IV','PUBLIC','GPS_Driver','SYSTEM','NIL','').
 isComponentImplementation('interfaceview::IV','PUBLIC','GPS_Driver','others','SYSTEM','NIL','others','').
 isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','NIL','Source_Language','(C)','').
 isProperty('NIL','=>','interfaceview::IV','GPS_Driver','NIL','NIL','Taste::Active_Interfaces','any','').
-isProperty('NIL','=>','interfaceview::IV','interfaceview','others','GPS_Driver','Taste::coordinates','"85365 28792 161890 68737"','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','GPS_Driver','Taste::coordinates','"98624 52067 165695 88690"','').
 isSubcomponent('interfaceview::IV','interfaceview','others','GPS_Driver','SYSTEM','interfaceview::IV::GPS_Driver.others','NIL','NIL','').
 isImportDeclaration('interfaceview::FV::GPS_Driver','PUBLIC','Taste','').
 isImportDeclaration('interfaceview::FV::GPS_Driver','PUBLIC','DataView','').
 isImportDeclaration('interfaceview::FV::GPS_Driver','PUBLIC','TASTE_IV_Properties','').
 isSubcomponent('interfaceview::IV','LEON_UART','others','driver_configuration','DATA','DataView::LEON_UART_Configuration','NIL','NIL','').
 isProperty('NIL','=>','interfaceview::IV','LEON_UART','others','driver_configuration','Taste::FS_Default_Value','"{console-id 1, baud 19200}"','').
-isComponentType('interfaceview::FV::LEON_UART','PUBLIC','PI_txBytes','SUBPROGRAM','NIL','').
-isComponentImplementation('interfaceview::FV::LEON_UART','PUBLIC','PI_txBytes','others','SUBPROGRAM','NIL','others','').
-isFeature('ACCESS','interfaceview::IV','LEON_UART','PI_txBytes','PROVIDES','SUBPROGRAM','interfaceview::FV::LEON_UART::PI_txBytes.others','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_txBytes','NIL','NIL','Taste::Associated_Queue_Size','1','').
-isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_txBytes','Taste::coordinates','"196496 60049"','').
-isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_txBytes','Taste::RCMoperationKind','unprotected','').
-isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_txBytes','Taste::RCMperiod','0 ms','').
-isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_txBytes','Taste::Deadline','0 ms','').
-isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_txBytes','Taste::InterfaceName','"txBytes"','').
-isFeature('PARAMETER','interfaceview::FV::LEON_UART','PI_txBytes','buf','IN','NIL','DataView::UART_String','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_txBytes','NIL','buf','Taste::encoding','NATIVE','').
-isFeature('PARAMETER','interfaceview::FV::LEON_UART','PI_txBytes','len','IN','NIL','DataView::T_UInt32','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_txBytes','NIL','len','Taste::encoding','NATIVE','').
-isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_txBytes','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
-isSubcomponent('interfaceview::IV','LEON_UART','others','txBytes_impl','SUBPROGRAM','interfaceview::FV::LEON_UART::PI_txBytes.others','NIL','NIL','').
-isConnection('SUBPROGRAM ACCESS','interfaceview::IV','LEON_UART','others','OpToPICnx_txBytes_impl','txBytes_impl','->','PI_txBytes','NIL','').
-isComponentType('interfaceview::FV::LEON_UART','PUBLIC','PI_rxBytes','SUBPROGRAM','NIL','').
-isComponentImplementation('interfaceview::FV::LEON_UART','PUBLIC','PI_rxBytes','others','SUBPROGRAM','NIL','others','').
-isFeature('ACCESS','interfaceview::IV','LEON_UART','PI_rxBytes','PROVIDES','SUBPROGRAM','interfaceview::FV::LEON_UART::PI_rxBytes.others','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_rxBytes','NIL','NIL','Taste::Associated_Queue_Size','1','').
-isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_rxBytes','Taste::coordinates','"196496 40146"','').
-isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_rxBytes','Taste::RCMoperationKind','unprotected','').
-isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_rxBytes','Taste::RCMperiod','0 ms','').
-isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_rxBytes','Taste::Deadline','0 ms','').
-isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_rxBytes','Taste::InterfaceName','"rxBytes"','').
-isFeature('PARAMETER','interfaceview::FV::LEON_UART','PI_rxBytes','buf','OUT','NIL','DataView::UART_String','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_rxBytes','NIL','buf','Taste::encoding','NATIVE','').
-isFeature('PARAMETER','interfaceview::FV::LEON_UART','PI_rxBytes','len','IN','NIL','DataView::T_UInt32','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_rxBytes','NIL','len','Taste::encoding','NATIVE','').
-isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_rxBytes','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
-isSubcomponent('interfaceview::IV','LEON_UART','others','rxBytes_impl','SUBPROGRAM','interfaceview::FV::LEON_UART::PI_rxBytes.others','NIL','NIL','').
-isConnection('SUBPROGRAM ACCESS','interfaceview::IV','LEON_UART','others','OpToPICnx_rxBytes_impl','rxBytes_impl','->','PI_rxBytes','NIL','').
+isSubcomponent('interfaceview::IV','LEON_UART','others','extraCompileFlags','DATA','DataView::TASTE_Directive','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','others','extraCompileFlags','Taste::FS_Default_Value','"compiler-option:""-I $PRJ_DIR/libs/install/include/"""','').
+isComponentType('interfaceview::FV::LEON_UART','PUBLIC','PI_txUartBytes','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::LEON_UART','PUBLIC','PI_txUartBytes','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','LEON_UART','PI_txUartBytes','PROVIDES','SUBPROGRAM','interfaceview::FV::LEON_UART::PI_txUartBytes.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_txUartBytes','NIL','NIL','Taste::Associated_Queue_Size','1','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_txUartBytes','Taste::coordinates','"200076 81310"','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_txUartBytes','Taste::RCMoperationKind','unprotected','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_txUartBytes','Taste::RCMperiod','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_txUartBytes','Taste::Deadline','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_txUartBytes','Taste::InterfaceName','"txUartBytes"','').
+isFeature('PARAMETER','interfaceview::FV::LEON_UART','PI_txUartBytes','buf','IN','NIL','DataView::UART_String','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_txUartBytes','NIL','buf','Taste::encoding','NATIVE','').
+isFeature('PARAMETER','interfaceview::FV::LEON_UART','PI_txUartBytes','len','IN','NIL','DataView::T_UInt32','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_txUartBytes','NIL','len','Taste::encoding','NATIVE','').
+isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_txUartBytes','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
+isSubcomponent('interfaceview::IV','LEON_UART','others','txUartBytes_impl','SUBPROGRAM','interfaceview::FV::LEON_UART::PI_txUartBytes.others','NIL','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','LEON_UART','others','OpToPICnx_txUartBytes_impl','txUartBytes_impl','->','PI_txUartBytes','NIL','').
+isComponentType('interfaceview::FV::LEON_UART','PUBLIC','PI_tick','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::LEON_UART','PUBLIC','PI_tick','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','LEON_UART','PI_tick','PROVIDES','SUBPROGRAM','interfaceview::FV::LEON_UART::PI_tick.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_tick','NIL','NIL','Taste::Associated_Queue_Size','1','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_tick','Taste::coordinates','"231408 56647"','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_tick','Taste::RCMoperationKind','cyclic','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_tick','Taste::RCMperiod','20 ms','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_tick','Taste::Deadline','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','PI_tick','Taste::InterfaceName','"tick"','').
+isProperty('NIL','=>','interfaceview::FV::LEON_UART','PI_tick','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
+isSubcomponent('interfaceview::IV','LEON_UART','others','tick_impl','SUBPROGRAM','interfaceview::FV::LEON_UART::PI_tick.others','NIL','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','LEON_UART','others','OpToPICnx_tick_impl','tick_impl','->','PI_tick','NIL','').
+isComponentType('interfaceview::FV::LEON_UART','PUBLIC','RI_rxUartBytes','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::LEON_UART','PUBLIC','RI_rxUartBytes','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','LEON_UART','RI_rxUartBytes','REQUIRES','SUBPROGRAM','interfaceview::FV::GPS_Driver::PI_rxUartBytes.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','RI_rxUartBytes','Taste::coordinates','"200076 65599"','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','RI_rxUartBytes','Taste::RCMoperationKind','any','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','RI_rxUartBytes','Taste::InterfaceName','"rxUartBytes"','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','RI_rxUartBytes','Taste::labelInheritance','"true"','').
+isFeature('PARAMETER','interfaceview::FV::LEON_UART','RI_rxUartBytes','buf','IN','NIL','DataView::UART_String','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::LEON_UART','RI_rxUartBytes','NIL','buf','Taste::encoding','NATIVE','').
+isFeature('PARAMETER','interfaceview::FV::LEON_UART','RI_rxUartBytes','len','IN','NIL','DataView::T_UInt32','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::LEON_UART','RI_rxUartBytes','NIL','len','Taste::encoding','NATIVE','').
 isPackage('interfaceview::FV::LEON_UART','PUBLIC','').
 isComponentType('interfaceview::IV','PUBLIC','LEON_UART','SYSTEM','NIL','').
 isComponentImplementation('interfaceview::IV','PUBLIC','LEON_UART','others','SYSTEM','NIL','others','').
 isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','NIL','Source_Language','(Blackbox_device)','').
 isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','NIL','Taste::Active_Interfaces','any','').
-isProperty('NIL','=>','interfaceview::IV','interfaceview','others','LEON_UART','Taste::coordinates','"196496 35386 268690 70419"','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','LEON_UART','Taste::coordinates','"200076 56647 257075 88243"','').
 isSubcomponent('interfaceview::IV','interfaceview','others','LEON_UART','SYSTEM','interfaceview::IV::LEON_UART.others','NIL','NIL','').
 isImportDeclaration('interfaceview::FV::LEON_UART','PUBLIC','Taste','').
 isImportDeclaration('interfaceview::FV::LEON_UART','PUBLIC','DataView','').
 isImportDeclaration('interfaceview::FV::LEON_UART','PUBLIC','TASTE_IV_Properties','').
 isSubcomponent('interfaceview::IV','SystemInit','others','console_configuration','DATA','DataView::LEON_UART_Configuration','NIL','NIL','').
 isProperty('NIL','=>','interfaceview::IV','SystemInit','others','console_configuration','Taste::FS_Default_Value','"{console-id 0, baud 115200}"','').
+isSubcomponent('interfaceview::IV','SystemInit','others','extraCompileFlags','DATA','DataView::TASTE_Directive','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','SystemInit','others','extraCompileFlags','Taste::FS_Default_Value','"compiler-option:""-I $PRJ_DIR/libs/install/include/"""','').
+isSubcomponent('interfaceview::IV','SystemInit','others','extraLinkFlags','DATA','DataView::TASTE_Directive','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','SystemInit','others','extraLinkFlags','Taste::FS_Default_Value','"linker-option:""-L $PRJ_DIR/libs/install/lib/ -lutil"""','').
 isComponentType('interfaceview::FV::SystemInit','PUBLIC','PI_dummy','SUBPROGRAM','NIL','').
 isComponentImplementation('interfaceview::FV::SystemInit','PUBLIC','PI_dummy','others','SUBPROGRAM','NIL','others','').
 isFeature('ACCESS','interfaceview::IV','SystemInit','PI_dummy','PROVIDES','SUBPROGRAM','interfaceview::FV::SystemInit::PI_dummy.others','NIL','NIL','').
 isProperty('NIL','=>','interfaceview::FV::SystemInit','PI_dummy','NIL','NIL','Taste::Associated_Queue_Size','1','').
-isProperty('NIL','=>','interfaceview::IV','SystemInit','NIL','PI_dummy','Taste::coordinates','"238062 20756"','').
-isProperty('NIL','=>','interfaceview::IV','SystemInit','NIL','PI_dummy','Taste::RCMoperationKind','unprotected','').
-isProperty('NIL','=>','interfaceview::IV','SystemInit','NIL','PI_dummy','Taste::RCMperiod','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','SystemInit','NIL','PI_dummy','Taste::coordinates','"238062 20532"','').
+isProperty('NIL','=>','interfaceview::IV','SystemInit','NIL','PI_dummy','Taste::RCMoperationKind','cyclic','').
+isProperty('NIL','=>','interfaceview::IV','SystemInit','NIL','PI_dummy','Taste::RCMperiod','100000 ms','').
 isProperty('NIL','=>','interfaceview::IV','SystemInit','NIL','PI_dummy','Taste::Deadline','0 ms','').
 isProperty('NIL','=>','interfaceview::IV','SystemInit','NIL','PI_dummy','Taste::InterfaceName','"dummy"','').
 isProperty('NIL','=>','interfaceview::FV::SystemInit','PI_dummy','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
@@ -162,12 +180,96 @@ isComponentType('interfaceview::IV','PUBLIC','SystemInit','SYSTEM','NIL','').
 isComponentImplementation('interfaceview::IV','PUBLIC','SystemInit','others','SYSTEM','NIL','others','').
 isProperty('NIL','=>','interfaceview::IV','SystemInit','NIL','NIL','Source_Language','(C)','').
 isProperty('NIL','=>','interfaceview::IV','SystemInit','NIL','NIL','Taste::Active_Interfaces','any','').
-isProperty('NIL','=>','interfaceview::IV','interfaceview','others','SystemInit','Taste::coordinates','"215458 5538 250147 20756"','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','SystemInit','Taste::coordinates','"215458 5314 250147 20532"','').
 isSubcomponent('interfaceview::IV','interfaceview','others','SystemInit','SYSTEM','interfaceview::IV::SystemInit.others','NIL','NIL','').
 isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::SystemInit','').
 isImportDeclaration('interfaceview::FV::SystemInit','PUBLIC','Taste','').
 isImportDeclaration('interfaceview::FV::SystemInit','PUBLIC','DataView','').
 isImportDeclaration('interfaceview::FV::SystemInit','PUBLIC','TASTE_IV_Properties','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','LEON_OC_CAN_PI_txCanFrame_CAN_Protocol_Impl_RI_txCanFrame','LEON_OC_CAN.PI_txCanFrame','->','CAN_Protocol_Impl.RI_txCanFrame','NIL','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','LEON_OC_CAN_PI_txCanFrame_CAN_Protocol_Impl_RI_txCanFrame','Taste::coordinates','"163832 131294 180469 131294 180469 132750 199878 132750"','').
+isComponentType('interfaceview::FV::LEON_OC_CAN','PUBLIC','PI_txCanFrame','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::LEON_OC_CAN','PUBLIC','PI_txCanFrame','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','LEON_OC_CAN','PI_txCanFrame','PROVIDES','SUBPROGRAM','interfaceview::FV::LEON_OC_CAN::PI_txCanFrame.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::LEON_OC_CAN','PI_txCanFrame','NIL','NIL','Taste::Associated_Queue_Size','1','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_txCanFrame','Taste::coordinates','"199878 132750"','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_txCanFrame','Taste::RCMoperationKind','unprotected','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_txCanFrame','Taste::RCMperiod','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_txCanFrame','Taste::Deadline','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_txCanFrame','Taste::InterfaceName','"txCanFrame"','').
+isFeature('PARAMETER','interfaceview::FV::LEON_OC_CAN','PI_txCanFrame','frame','IN','NIL','DataView::CAN_Frame','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::LEON_OC_CAN','PI_txCanFrame','NIL','frame','Taste::encoding','NATIVE','').
+isProperty('NIL','=>','interfaceview::FV::LEON_OC_CAN','PI_txCanFrame','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
+isSubcomponent('interfaceview::IV','LEON_OC_CAN','others','txCanFrame_impl','SUBPROGRAM','interfaceview::FV::LEON_OC_CAN::PI_txCanFrame.others','NIL','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','LEON_OC_CAN','others','OpToPICnx_txCanFrame_impl','txCanFrame_impl','->','PI_txCanFrame','NIL','').
+isComponentType('interfaceview::FV::LEON_OC_CAN','PUBLIC','PI_tick','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::LEON_OC_CAN','PUBLIC','PI_tick','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','LEON_OC_CAN','PI_tick','PROVIDES','SUBPROGRAM','interfaceview::FV::LEON_OC_CAN::PI_tick.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::LEON_OC_CAN','PI_tick','NIL','NIL','Taste::Associated_Queue_Size','1','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_tick','Taste::coordinates','"230900 107368"','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_tick','Taste::RCMoperationKind','cyclic','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_tick','Taste::RCMperiod','4 ms','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_tick','Taste::Deadline','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_tick','Taste::InterfaceName','"tick"','').
+isProperty('NIL','=>','interfaceview::FV::LEON_OC_CAN','PI_tick','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
+isSubcomponent('interfaceview::IV','LEON_OC_CAN','others','tick_impl','SUBPROGRAM','interfaceview::FV::LEON_OC_CAN::PI_tick.others','NIL','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','LEON_OC_CAN','others','OpToPICnx_tick_impl','tick_impl','->','PI_tick','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','CAN_Protocol_Impl_PI_rxCanFrame_LEON_OC_CAN_RI_rxCanFrame','CAN_Protocol_Impl.PI_rxCanFrame','->','LEON_OC_CAN.RI_rxCanFrame','NIL','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','CAN_Protocol_Impl_PI_rxCanFrame_LEON_OC_CAN_RI_rxCanFrame','Taste::coordinates','"199878 118558 180469 118558 180469 118761 163832 118761"','').
+isComponentType('interfaceview::FV::LEON_OC_CAN','PUBLIC','RI_rxCanFrame','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::LEON_OC_CAN','PUBLIC','RI_rxCanFrame','others','SUBPROGRAM','NIL','others','').
+isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::CAN_Protocol_Impl','').
+isFeature('ACCESS','interfaceview::IV','LEON_OC_CAN','RI_rxCanFrame','REQUIRES','SUBPROGRAM','interfaceview::FV::CAN_Protocol_Impl::PI_rxCanFrame.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','RI_rxCanFrame','Taste::coordinates','"199878 118558"','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','RI_rxCanFrame','Taste::RCMoperationKind','any','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','RI_rxCanFrame','Taste::InterfaceName','"rxCanFrame"','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','RI_rxCanFrame','Taste::labelInheritance','"true"','').
+isFeature('PARAMETER','interfaceview::FV::LEON_OC_CAN','RI_rxCanFrame','frame','IN','NIL','DataView::CAN_Frame','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::LEON_OC_CAN','RI_rxCanFrame','NIL','frame','Taste::encoding','NATIVE','').
+isPackage('interfaceview::FV::LEON_OC_CAN','PUBLIC','').
+isComponentType('interfaceview::IV','PUBLIC','LEON_OC_CAN','SYSTEM','NIL','').
+isComponentImplementation('interfaceview::IV','PUBLIC','LEON_OC_CAN','others','SYSTEM','NIL','others','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','NIL','Source_Language','(Blackbox_device)','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','NIL','Taste::Active_Interfaces','any','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','LEON_OC_CAN','Taste::coordinates','"199878 107368 257757 141833"','').
+isSubcomponent('interfaceview::IV','interfaceview','others','LEON_OC_CAN','SYSTEM','interfaceview::IV::LEON_OC_CAN.others','NIL','NIL','').
+isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::LEON_OC_CAN','').
+isImportDeclaration('interfaceview::FV::LEON_OC_CAN','PUBLIC','Taste','').
+isImportDeclaration('interfaceview::FV::LEON_OC_CAN','PUBLIC','DataView','').
+isImportDeclaration('interfaceview::FV::LEON_OC_CAN','PUBLIC','TASTE_IV_Properties','').
+isComponentType('interfaceview::FV::CAN_Protocol_Impl','PUBLIC','PI_rxCanFrame','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::CAN_Protocol_Impl','PUBLIC','PI_rxCanFrame','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','CAN_Protocol_Impl','PI_rxCanFrame','PROVIDES','SUBPROGRAM','interfaceview::FV::CAN_Protocol_Impl::PI_rxCanFrame.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::CAN_Protocol_Impl','PI_rxCanFrame','NIL','NIL','Taste::Associated_Queue_Size','1','').
+isProperty('NIL','=>','interfaceview::IV','CAN_Protocol_Impl','NIL','PI_rxCanFrame','Taste::coordinates','"163832 118761"','').
+isProperty('NIL','=>','interfaceview::IV','CAN_Protocol_Impl','NIL','PI_rxCanFrame','Taste::RCMoperationKind','unprotected','').
+isProperty('NIL','=>','interfaceview::IV','CAN_Protocol_Impl','NIL','PI_rxCanFrame','Taste::RCMperiod','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','CAN_Protocol_Impl','NIL','PI_rxCanFrame','Taste::Deadline','0 ms','').
+isProperty('NIL','=>','interfaceview::IV','CAN_Protocol_Impl','NIL','PI_rxCanFrame','Taste::InterfaceName','"rxCanFrame"','').
+isFeature('PARAMETER','interfaceview::FV::CAN_Protocol_Impl','PI_rxCanFrame','frame','IN','NIL','DataView::CAN_Frame','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::CAN_Protocol_Impl','PI_rxCanFrame','NIL','frame','Taste::encoding','NATIVE','').
+isProperty('NIL','=>','interfaceview::FV::CAN_Protocol_Impl','PI_rxCanFrame','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
+isSubcomponent('interfaceview::IV','CAN_Protocol_Impl','others','rxCanFrame_impl','SUBPROGRAM','interfaceview::FV::CAN_Protocol_Impl::PI_rxCanFrame.others','NIL','NIL','').
+isConnection('SUBPROGRAM ACCESS','interfaceview::IV','CAN_Protocol_Impl','others','OpToPICnx_rxCanFrame_impl','rxCanFrame_impl','->','PI_rxCanFrame','NIL','').
+isComponentType('interfaceview::FV::CAN_Protocol_Impl','PUBLIC','RI_txCanFrame','SUBPROGRAM','NIL','').
+isComponentImplementation('interfaceview::FV::CAN_Protocol_Impl','PUBLIC','RI_txCanFrame','others','SUBPROGRAM','NIL','others','').
+isFeature('ACCESS','interfaceview::IV','CAN_Protocol_Impl','RI_txCanFrame','REQUIRES','SUBPROGRAM','interfaceview::FV::LEON_OC_CAN::PI_txCanFrame.others','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','CAN_Protocol_Impl','NIL','RI_txCanFrame','Taste::coordinates','"163832 131294"','').
+isProperty('NIL','=>','interfaceview::IV','CAN_Protocol_Impl','NIL','RI_txCanFrame','Taste::RCMoperationKind','any','').
+isProperty('NIL','=>','interfaceview::IV','CAN_Protocol_Impl','NIL','RI_txCanFrame','Taste::InterfaceName','"txCanFrame"','').
+isProperty('NIL','=>','interfaceview::IV','CAN_Protocol_Impl','NIL','RI_txCanFrame','Taste::labelInheritance','"true"','').
+isFeature('PARAMETER','interfaceview::FV::CAN_Protocol_Impl','RI_txCanFrame','frame','IN','NIL','DataView::CAN_Frame','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::FV::CAN_Protocol_Impl','RI_txCanFrame','NIL','frame','Taste::encoding','NATIVE','').
+isPackage('interfaceview::FV::CAN_Protocol_Impl','PUBLIC','').
+isComponentType('interfaceview::IV','PUBLIC','CAN_Protocol_Impl','SYSTEM','NIL','').
+isComponentImplementation('interfaceview::IV','PUBLIC','CAN_Protocol_Impl','others','SYSTEM','NIL','others','').
+isProperty('NIL','=>','interfaceview::IV','CAN_Protocol_Impl','NIL','NIL','Source_Language','(C)','').
+isProperty('NIL','=>','interfaceview::IV','CAN_Protocol_Impl','NIL','NIL','Taste::Active_Interfaces','any','').
+isProperty('NIL','=>','interfaceview::IV','interfaceview','others','CAN_Protocol_Impl','Taste::coordinates','"102287 112047 163832 137560"','').
+isSubcomponent('interfaceview::IV','interfaceview','others','CAN_Protocol_Impl','SYSTEM','interfaceview::IV::CAN_Protocol_Impl.others','NIL','NIL','').
+isImportDeclaration('interfaceview::FV::CAN_Protocol_Impl','PUBLIC','Taste','').
+isImportDeclaration('interfaceview::FV::CAN_Protocol_Impl','PUBLIC','DataView','').
+isImportDeclaration('interfaceview::FV::CAN_Protocol_Impl','PUBLIC','TASTE_IV_Properties','').
 isProperty('_','_','_','_','_','_','LMP::Unparser_ID_Case','AsIs','').
 isProperty('_','_','_','_','_','_','LMP::Unparser_Insert_Header','Yes','').
 isPackage('interfaceview::IV','PUBLIC','').

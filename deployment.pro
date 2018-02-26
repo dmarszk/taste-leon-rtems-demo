@@ -11,6 +11,12 @@ isProperty('NIL','APPLIES TO','deploymentview::DV','LeonNode','others','IV_LEON_
 isSubcomponent('deploymentview::DV','LeonNode','others','IV_SystemInit','SYSTEM','interfaceview::IV::SystemInit.others','NIL','NIL','').
 isProperty('NIL','=>','deploymentview::DV','LeonNode','others','IV_SystemInit','Taste::FunctionName','"SystemInit"','').
 isProperty('NIL','APPLIES TO','deploymentview::DV','LeonNode','others','IV_SystemInit','Taste::APLC_Binding','(reference (leon3_partition))','').
+isSubcomponent('deploymentview::DV','LeonNode','others','IV_LEON_OC_CAN','SYSTEM','interfaceview::IV::LEON_OC_CAN.others','NIL','NIL','').
+isProperty('NIL','=>','deploymentview::DV','LeonNode','others','IV_LEON_OC_CAN','Taste::FunctionName','"LEON_OC_CAN"','').
+isProperty('NIL','APPLIES TO','deploymentview::DV','LeonNode','others','IV_LEON_OC_CAN','Taste::APLC_Binding','(reference (leon3_partition))','').
+isSubcomponent('deploymentview::DV','LeonNode','others','IV_CAN_Protocol_Impl','SYSTEM','interfaceview::IV::CAN_Protocol_Impl.others','NIL','NIL','').
+isProperty('NIL','=>','deploymentview::DV','LeonNode','others','IV_CAN_Protocol_Impl','Taste::FunctionName','"CAN_Protocol_Impl"','').
+isProperty('NIL','APPLIES TO','deploymentview::DV','LeonNode','others','IV_CAN_Protocol_Impl','Taste::APLC_Binding','(reference (leon3_partition))','').
 isComponentType('deploymentview::DV::LeonNode','PUBLIC','leon3_partition','PROCESS','NIL','').
 isComponentImplementation('deploymentview::DV::LeonNode','PUBLIC','leon3_partition','others','PROCESS','NIL','others','').
 isProperty('NIL','APPLIES TO','deploymentview::DV','LeonNode','others','leon3_partition','Actual_Processor_Binding','(reference (leon3_rtems412_posix_nofpu))','').

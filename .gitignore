@@ -2,3 +2,5 @@ binary.*
 DataView.aadl
 __*
 *.old
+*.zip
+*.log

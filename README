@@ -1,2 +1,35 @@
-Bootstrap project with:
+Before starting TASTE, bootstrap the project with:
 taste-update-data-view
+
+Then start TASTE with:
+taste-edit-project
+
+After regenerating skeletons, make sure to add
+	export PRJ_DIR=$CWD
+under
+	CWD=$(pwd)
+in the build-script.sh
+
+================================================
+UART and CAN operate in non-blocking mode.
+Blocking calls are problematic with PolyORB cyclic tasks.
+
+Tick of UART function has been selected assuming
+- 115200 baud with 8N1 framing,
+- Interrupt mode,
+- 256 byte RX FIFO inside kernel termios,
+- 100% utilization + 10% margin.
+T_UART = 1 / (115200 [bod/s] / 10 [bod/B] / 256 [B] * 1.1) = 0.020 [s] = 20 [ms]
+
+Tick of CAN function has been selected assuming
+- 1 Mbps
+- Average frame size = 4 byte of data + long CAN ID
+- 64 frame RX FIFO
+- 100% utilization + 10% margin
+- no bit stuffing
+
+T_CAN = 1 / (1000000 [b/s] / (4 * 8 + 47) [b/frame] / 64 [frames] * 1.1) = 0.004 [s] = 4 [ms]
+
+A better approach would be creating a separate RTEMS task performing
+blocking reads on those interfaces and queuing the data in a longer FIFO,
+polled by PolyORB tasks with lower frequency.

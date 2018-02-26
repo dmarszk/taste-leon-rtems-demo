@@ -14,6 +14,7 @@
 #    unset USE_POHIC   
 
 CWD=$(pwd)
+export PRJ_DIR=$CWD
 
 if [ -t 1 ] ; then
     COLORON="\e[1m\e[32m"
@@ -69,6 +70,10 @@ cd "$SKELS" && rm -f leon_uart.zip && zip leon_uart leon_uart/* && cd $OLDPWD
 
 cd "$SKELS" && rm -f systeminit.zip && zip systeminit systeminit/* && cd $OLDPWD
 
+cd "$SKELS" && rm -f leon_oc_can.zip && zip leon_oc_can leon_oc_can/* && cd $OLDPWD
+
+cd "$SKELS" && rm -f can_protocol_impl.zip && zip can_protocol_impl can_protocol_impl/* && cd $OLDPWD
+
 [ ! -z "$CLEANUP" ] && rm -rf binary*
 
 if [ -f ConcurrencyView.pro ]
@@ -113,6 +118,8 @@ cd "$CWD" && assert-builder-ocarina.py \
 	--subC gps_driver:"$SKELS"/gps_driver.zip \
 	--subC leon_uart:"$SKELS"/leon_uart.zip \
 	--subC systeminit:"$SKELS"/systeminit.zip \
+	--subC leon_oc_can:"$SKELS"/leon_oc_can.zip \
+	--subC can_protocol_impl:"$SKELS"/can_protocol_impl.zip \
 	$ORCHESTRATOR_OPTIONS
 
 if [ -f user_init_last.sh ]
