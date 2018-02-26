@@ -234,7 +234,7 @@ END LEON_UART;
 SYSTEM IMPLEMENTATION LEON_UART.others
 SUBCOMPONENTS
   driver_configuration : DATA DataView::LEON_UART_Configuration {
-    Taste::FS_Default_Value => "{console-id 1, baud 19200}";
+    Taste::FS_Default_Value => "{console-id 1, baud 9600}";
   };
   extraCompileFlags : DATA DataView::TASTE_Directive {
     Taste::FS_Default_Value => "compiler-option:""-I $PRJ_DIR/libs/install/include/""";
