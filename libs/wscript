@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+# encoding: utf-8
+
+# waf script building external libraries which can be used by the TASTE project
+
+from waflib import Utils
+from waflib.TaskGen import feature, before_method
+
+top = '.'
+out = 'build'
+
+modules = ['libcsp']
+
+def options(ctx):
+		ctx.recurse(modules, once=True)
+		ctx.add_option('--toolchain', action='store', default='sparc-rtems4.12-', help='Set toolchain prefix')
+		ctx.add_option('--cpu', action='store', default='leon3', help='CPU type')
+		# ctx.add_option('--rtems-bsp', action='store', default='${RTEMS_MAKEFILE_PATH}', help='RTEMS BSP path')
+				
+def configure(ctx):
+		# Override prefix
+		ctx.env.PREFIX = ctx.path.abspath() + '/install'
+		print('prefix is ' + ctx.env.PREFIX)
+		
+		ctx.env.append_unique('CFLAGS', [ '-mcpu=' + ctx.options.cpu, '-Wall', '-std=gnu99', '-g', '-O2', '-ffunction-sections', '-Wextra'])
+
+		# Options for libCSP
+		# They are mostly options copied Nanomind OBSW
+		# Most of them are not relevant to this example
+		ctx.options.with_os = 'posix'
+		ctx.options.with_rtable = 'cidr'
+		ctx.options.with_max_connections = 20
+		ctx.options.with_conn_queue_length = 20
+		ctx.options.with_router_queue_length = 100
+		ctx.options.with_max_bind_port = 25
+		ctx.options.enable_crc32 = True
+		ctx.options.enable_if_i2c = True
+		ctx.options.enable_if_kiss = True
+		ctx.options.enable_if_can = False
+		ctx.options.enable_rdp = True
+		ctx.options.disable_stlib = False
+		ctx.options.install_csp = True
+		ctx.recurse(modules)
+		
+def build(ctx):
+		ctx(export_includes=['include'], name='include')
+		ctx.recurse(modules)
