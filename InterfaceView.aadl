@@ -347,7 +347,7 @@ FEATURES
   PI_tick : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::LEON_OC_CAN::PI_tick.others {
     Taste::coordinates => "230900 107368";
     Taste::RCMoperationKind => cyclic;
-    Taste::RCMperiod => 4 ms;
+    Taste::RCMperiod => 36 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "tick";
   };
