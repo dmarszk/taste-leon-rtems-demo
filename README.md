@@ -49,6 +49,10 @@ More robust design would have intermediate RTEMS tasks, operating in blocked mod
 ## Drivers configuration
 systeminit/config.c is critical to configure LEON3 Driver Manager properly. Including loading OC_CAN driver.
 
+Console UART is initialized by systeminit to baud provided through the interface view (i.e. 115200)
+
+Peripheral UART is initialized by leon_uart to baud provided through the interface view (i.e. 9600)
+
 ## Quirks/TODO
 systeminit is forced to be initialized by having a long-period dummy tick interface. This is very ugly.
 
