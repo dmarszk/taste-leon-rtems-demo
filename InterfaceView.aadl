@@ -235,7 +235,7 @@ FEATURES
     Taste::labelInheritance => "true";
   };
 PROPERTIES
-  Source_Language => (Blackbox_device);
+  Source_Language => (C);
   Taste::Active_Interfaces => any;
 END LEON_UART;
 
@@ -258,6 +258,8 @@ WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
 SUBPROGRAM PI_dummy
+PROPERTIES
+  Taste::Associated_Queue_Size => 1;
 END PI_dummy;
 
 SUBPROGRAM IMPLEMENTATION PI_dummy.others
@@ -358,7 +360,7 @@ FEATURES
     Taste::labelInheritance => "true";
   };
 PROPERTIES
-  Source_Language => (Blackbox_device);
+  Source_Language => (C);
   Taste::Active_Interfaces => any;
 END LEON_OC_CAN;
 

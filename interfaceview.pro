@@ -154,7 +154,7 @@ isProperty('NIL','=>','interfaceview::FV::LEON_UART','RI_rxUartBytes','NIL','len
 isPackage('interfaceview::FV::LEON_UART','PUBLIC','').
 isComponentType('interfaceview::IV','PUBLIC','LEON_UART','SYSTEM','NIL','').
 isComponentImplementation('interfaceview::IV','PUBLIC','LEON_UART','others','SYSTEM','NIL','others','').
-isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','NIL','Source_Language','(Blackbox_device)','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','NIL','Source_Language','(C)','').
 isProperty('NIL','=>','interfaceview::IV','LEON_UART','NIL','NIL','Taste::Active_Interfaces','any','').
 isProperty('NIL','=>','interfaceview::IV','interfaceview','others','LEON_UART','Taste::coordinates','"200076 56647 257075 88243"','').
 isSubcomponent('interfaceview::IV','interfaceview','others','LEON_UART','SYSTEM','interfaceview::IV::LEON_UART.others','NIL','NIL','').
@@ -214,7 +214,7 @@ isFeature('ACCESS','interfaceview::IV','LEON_OC_CAN','PI_tick','PROVIDES','SUBPR
 isProperty('NIL','=>','interfaceview::FV::LEON_OC_CAN','PI_tick','NIL','NIL','Taste::Associated_Queue_Size','1','').
 isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_tick','Taste::coordinates','"230900 107368"','').
 isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_tick','Taste::RCMoperationKind','cyclic','').
-isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_tick','Taste::RCMperiod','4 ms','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_tick','Taste::RCMperiod','36 ms','').
 isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_tick','Taste::Deadline','0 ms','').
 isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','PI_tick','Taste::InterfaceName','"tick"','').
 isProperty('NIL','=>','interfaceview::FV::LEON_OC_CAN','PI_tick','others','NIL','Compute_Execution_Time','0 ms .. 0 ms','').
@@ -235,7 +235,7 @@ isProperty('NIL','=>','interfaceview::FV::LEON_OC_CAN','RI_rxCanFrame','NIL','fr
 isPackage('interfaceview::FV::LEON_OC_CAN','PUBLIC','').
 isComponentType('interfaceview::IV','PUBLIC','LEON_OC_CAN','SYSTEM','NIL','').
 isComponentImplementation('interfaceview::IV','PUBLIC','LEON_OC_CAN','others','SYSTEM','NIL','others','').
-isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','NIL','Source_Language','(Blackbox_device)','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','NIL','Source_Language','(C)','').
 isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','NIL','NIL','Taste::Active_Interfaces','any','').
 isProperty('NIL','=>','interfaceview::IV','interfaceview','others','LEON_OC_CAN','Taste::coordinates','"199878 107368 257757 141833"','').
 isSubcomponent('interfaceview::IV','interfaceview','others','LEON_OC_CAN','SYSTEM','interfaceview::IV::LEON_OC_CAN.others','NIL','NIL','').

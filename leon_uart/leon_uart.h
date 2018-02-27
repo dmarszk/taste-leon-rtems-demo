@@ -2,24 +2,28 @@
 
 /* Declaration of the functions that have to be provided by the user */
 
-#ifndef __DRIVER_CODE_H_leon_uart__
-#define __DRIVER_CODE_H_leon_uart__
+#ifndef __USER_CODE_H_leon_uart__
+#define __USER_CODE_H_leon_uart__
 
-#ifdef __unix__
-    #include <stdlib.h>
-#else
-    typedef unsigned size_t;
+#include "C_ASN1_Types.h"
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-void init_leon_uart();
+void leon_uart_startup();
 
-void leon_uart_txUartBytes(void *, size_t, void *, size_t);
+void leon_uart_PI_txUartBytes(const asn1SccUART_String *,
+                              const asn1SccT_UInt32 *);
 
-void leon_uart_tick();
+void leon_uart_PI_tick();
 
+extern void leon_uart_RI_rxUartBytes(const asn1SccUART_String *,
+                                     const asn1SccT_UInt32 *);
 
-/* Required interface "rxUartBytes" */
-extern void vm_leon_uart_rxUartBytes(void *IN_buf, size_t IN_buf_size, void *IN_len, size_t IN_len_size);
+#ifdef __cplusplus
+}
+#endif
 
 
 #endif

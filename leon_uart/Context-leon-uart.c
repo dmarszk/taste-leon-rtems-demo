@@ -36,6 +36,6 @@ flag asn1SccContext_leon_uart_IsConstraintValid(const asn1SccContext_leon_uart* 
 const asn1SccContext_leon_uart leon_uart_ctxt = {
     .driver_configuration = {
         .console_id = 1,
-        .baud = 19200
+        .baud = 9600
     }
 };

@@ -2,24 +2,26 @@
 
 /* Declaration of the functions that have to be provided by the user */
 
-#ifndef __DRIVER_CODE_H_leon_oc_can__
-#define __DRIVER_CODE_H_leon_oc_can__
+#ifndef __USER_CODE_H_leon_oc_can__
+#define __USER_CODE_H_leon_oc_can__
 
-#ifdef __unix__
-    #include <stdlib.h>
-#else
-    typedef unsigned size_t;
+#include "C_ASN1_Types.h"
+
+#ifdef __cplusplus
+extern "C" {
 #endif
 
-void init_leon_oc_can();
+void leon_oc_can_startup();
 
-void leon_oc_can_txCanFrame(void *, size_t);
+void leon_oc_can_PI_txCanFrame(const asn1SccCAN_Frame *);
 
-void leon_oc_can_tick();
+void leon_oc_can_PI_tick();
 
+extern void leon_oc_can_RI_rxCanFrame(const asn1SccCAN_Frame *);
 
-/* Required interface "rxCanFrame" */
-extern void vm_leon_oc_can_rxCanFrame(void *IN_frame, size_t IN_frame_size);
+#ifdef __cplusplus
+}
+#endif
 
 
 #endif

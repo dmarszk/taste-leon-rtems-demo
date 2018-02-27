@@ -23,9 +23,9 @@
 
 static int console_fd;
 static uint8_t initialized = 0;
-void init_leon_uart()
+void leon_uart_startup()
 {
-  printf("init_leon_uart\n");
+  printf("leon_uart_startup\n");
   if (!initialized)
   {
     char console_dev[16];
@@ -33,30 +33,27 @@ void init_leon_uart()
     console_fd = terminal_setup(console_dev, leon_uart_ctxt.driver_configuration.baud, 1);
     if (console_fd < 0)
     {
-      printf("init_leon_uart: failed to initialize console %s\n", console_dev);
+      printf("leon_uart_startup: failed to initialize console %s\n", console_dev);
       return;
     }
     initialized = 1;
   }
 }
 
-void leon_uart_txUartBytes(void *IN_buf, size_t size_IN_buf, void *IN_len, size_t size_IN_len)
+void leon_uart_PI_txUartBytes(const asn1SccUART_String * IN_buf,
+                              const asn1SccT_UInt32 * IN_len)
 {
-  uint32_t len;
   int written_len;
   if (!initialized)
     return;
-  len = *(uint32_t*)IN_len;
-  if (len > size_IN_buf)
-    return;
-  written_len = write(console_fd, IN_buf, len);
+  written_len = write(console_fd, IN_buf->arr, *IN_len);
   if (written_len < 0)
   {
-    printf("leon_uart_txUartBytes: write error (returned %d)\n", written_len);
+    printf("leon_uart_PI_txUartBytes: write error (returned %d)\n", written_len);
   }
-  else if (written_len != len)
+  else if (written_len != *IN_len)
   {
-    printf("leon_uart_txUartBytes: did not write full buffer (len=%d, written=%d)\n", len, written_len);
+    printf("leon_uart_PI_txUartBytes: did not write full buffer (len=%d, written=%d)\n", *IN_len, written_len);
   }
   else
   {
@@ -65,20 +62,21 @@ void leon_uart_txUartBytes(void *IN_buf, size_t size_IN_buf, void *IN_len, size_
 }
 
 
-void leon_uart_tick()
+void leon_uart_PI_tick()
 {
-  static uint8_t read_buf[READ_BUF_SIZE];
+  static asn1SccUART_String read_buf;
+  static asn1SccT_UInt32 asn_read_len;
   int read_len;
   if (!initialized)
     return;
-  read_len = read(console_fd, read_buf, READ_BUF_SIZE);
+  read_len = read(console_fd, read_buf.arr, READ_BUF_SIZE);
   if (read_len > 0)
   {
-    vm_leon_uart_rxUartBytes((void*) read_buf, READ_BUF_SIZE, (void*) &read_len, 4);
+    leon_uart_RI_rxUartBytes(&read_buf, &asn_read_len);
   }
   else if (read_len < 0)
   {
-    printf("leon_uart_tick: read error (returned %d)\n", read_len);
+    printf("leon_uart_PI_tick: read error (returned %d)\n", read_len);
   }
   else
   {

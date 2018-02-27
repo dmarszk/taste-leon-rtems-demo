@@ -43,7 +43,7 @@ static rtems_task rx_task(rtems_task_argument);
 static rtems_task tx_task(rtems_task_argument);
 #define GAISLER_ID 0x2000
 #endif
-static void setup_can(void);
+static void leon_oc_can_setup(void);
 static occan_t chan;
 static uint8_t initialized = 0;
 
@@ -54,22 +54,15 @@ static uint8_t initialized = 0;
 #define OCCAN_BLOCKING_RX 0
 #define OCCAN_BLOCKING_TX 0
 
-typedef struct {
-    uint32_t id;
-    uint8_t len;
-    uint8_t data[8];
-} Native_CAN_Frame;
-
-
-void init_leon_oc_can()
+void leon_oc_can_startup()
 {
 #if GAISLER_SAMPLE
   rtems_status_code status;
 #endif
-  printf("init_leon_oc_can\n");
+  printf("leon_oc_can_startup\n");
   if (!initialized)
   {
-    setup_can();
+    leon_oc_can_setup();
     if (!chan)
     {
       return;
@@ -101,29 +94,21 @@ void init_leon_oc_can()
   }
 }
 
-void leon_oc_can_txCanFrame(void *IN_frame, size_t size_IN_frame)
+void leon_oc_can_PI_txCanFrame(const asn1SccCAN_Frame * IN_frame)
 {
 	CANMsg msg;
-  Native_CAN_Frame* can_frame;
   if (!initialized)
     return;
-  if (size_IN_frame != sizeof(Native_CAN_Frame))
-  {
-    printf("leon_oc_can_txCanFrame: ERROR - Frame struct size mismatch:\n"
-           "  size_IN_frame = %d, sizeof(Native_CAN_Frame) = %d\n",
-           size_IN_frame, sizeof(Native_CAN_Frame));
-  }
-  can_frame = (Native_CAN_Frame*) IN_frame;
   msg.extended = 1;
-  msg.id = can_frame->id;
+  msg.id = IN_frame->id;
   msg.rtr = 0;
 	msg.sshot = 1;
-	msg.len = can_frame->len;
-  memcpy(msg.data, can_frame->data, msg.len);
+	msg.len = IN_frame->len;
+  memcpy(msg.data, IN_frame->data.arr, msg.len);
   occanlib_send_multiple(chan, &msg, 1);
 }
 
-void leon_oc_can_tick()
+void leon_oc_can_PI_tick()
 {
   if (!initialized)
     return;
@@ -131,7 +116,7 @@ void leon_oc_can_tick()
   int max;
   int rx_count;
 	CANMsg msg;
-  Native_CAN_Frame can_frame;
+  asn1SccCAN_Frame can_frame;
   
   max = OCCAN_DRV_RX_FIFO_LEN;
   while (max != 0)
@@ -144,13 +129,13 @@ void leon_oc_can_tick()
 #endif
       can_frame.id = msg.id;
       can_frame.len = msg.len;
-      memcpy(can_frame.data, msg.data, msg.len);
-      vm_leon_oc_can_rxCanFrame(&can_frame, sizeof(Native_CAN_Frame));
+      memcpy(can_frame.data.arr, msg.data, msg.len);
+      leon_oc_can_RI_rxCanFrame(&can_frame);
       max--;
     }
     else if (rx_count < 0)
     {
-      printf("leon_oc_can_tick: ERROR - occanlib_recv_multiple ret = %d\n", rx_count);
+      printf("leon_oc_can_PI_tick: ERROR - occanlib_recv_multiple ret = %d\n", rx_count);
       return;
     }
     else
@@ -162,7 +147,7 @@ void leon_oc_can_tick()
 #endif
 }
 
-static void setup_can()
+static void leon_oc_can_setup()
 {
 	/* set up
 	 *  - Speed
@@ -173,15 +158,15 @@ static void setup_can()
 	struct occan_afilter afilt;
 	chan = occanlib_open(OCCAN_DEVICE_NAME);
 	if ( !chan ){
-		printf("leon_oc_can setup_can: Failed to open device %s\n", OCCAN_DEVICE_NAME);
+		printf("leon_oc_can_setup: Failed to open device %s\n", OCCAN_DEVICE_NAME);
 		return;
 	}
 
-	debug_printf("leon_oc_can setup_can: Setting speed\n");
+	debug_printf("leon_oc_can_setup: Setting speed\n");
 	occanlib_set_speed(chan, OCCAN_SPEED);
   //occanlib_set_btrs(chan,BTR0,BTR1);
 
-	debug_printf("leon_oc_can setup_can: Setting buf len\n");
+	debug_printf("leon_oc_can_setup: Setting buf len\n");
 	occanlib_set_buf_length(chan,OCCAN_DRV_RX_FIFO_LEN,OCCAN_DRV_TX_FIFO_LEN);
 
 	/* Set filter to accept all */
@@ -197,11 +182,11 @@ static void setup_can()
 	occanlib_set_filter(chan,&afilt);
 
 	/* RX+TX blocking mode */
-	debug_printf("leon_oc_can setup_can: Setting blk mode\n");
+	debug_printf("leon_oc_can_setup: Setting blk mode\n");
 	occanlib_set_blocking_mode(chan, OCCAN_BLOCKING_RX, OCCAN_BLOCKING_TX);
 
 	/* Start link */
-	debug_printf("leon_oc_can setup_can: start adapter\n");
+	debug_printf("leon_oc_can_setup: start adapter\n");
 	occanlib_start(chan);
 }
 
