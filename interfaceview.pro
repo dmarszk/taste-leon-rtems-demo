@@ -1,3 +1,5 @@
+isSubcomponent('interfaceview::IV','Manager','others','extraCompileFlags','DATA','DataView::TASTE_Directive','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','Manager','others','extraCompileFlags','Taste::FS_Default_Value','"compiler-option:""-I $PRJ_DIR/libs/install/include/"""','').
 isComponentType('interfaceview::FV::Manager','PUBLIC','PI_tick','SUBPROGRAM','NIL','').
 isComponentImplementation('interfaceview::FV::Manager','PUBLIC','PI_tick','others','SUBPROGRAM','NIL','others','').
 isFeature('ACCESS','interfaceview::IV','Manager','PI_tick','PROVIDES','SUBPROGRAM','interfaceview::FV::Manager::PI_tick.others','NIL','NIL','').
@@ -36,6 +38,8 @@ isImportDeclaration('interfaceview::IV','PUBLIC','DataView','').
 isImportDeclaration('interfaceview::FV::Manager','PUBLIC','DataView','').
 isImportDeclaration('interfaceview::FV::Manager','PUBLIC','TASTE_IV_Properties','').
 isImportDeclaration('interfaceview::IV','PUBLIC','TASTE_IV_Properties','').
+isSubcomponent('interfaceview::IV','GPS_Driver','others','extraCompileFlags','DATA','DataView::TASTE_Directive','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','GPS_Driver','others','extraCompileFlags','Taste::FS_Default_Value','"compiler-option:""-I $PRJ_DIR/libs/install/include/"""','').
 isComponentType('interfaceview::FV::GPS_Driver','PUBLIC','PI_gpsGetStatus','SUBPROGRAM','NIL','').
 isComponentImplementation('interfaceview::FV::GPS_Driver','PUBLIC','PI_gpsGetStatus','others','SUBPROGRAM','NIL','others','').
 isFeature('ACCESS','interfaceview::IV','GPS_Driver','PI_gpsGetStatus','PROVIDES','SUBPROGRAM','interfaceview::FV::GPS_Driver::PI_gpsGetStatus.others','NIL','NIL','').
@@ -105,7 +109,7 @@ isImportDeclaration('interfaceview::FV::GPS_Driver','PUBLIC','Taste','').
 isImportDeclaration('interfaceview::FV::GPS_Driver','PUBLIC','DataView','').
 isImportDeclaration('interfaceview::FV::GPS_Driver','PUBLIC','TASTE_IV_Properties','').
 isSubcomponent('interfaceview::IV','LEON_UART','others','driver_configuration','DATA','DataView::LEON_UART_Configuration','NIL','NIL','').
-isProperty('NIL','=>','interfaceview::IV','LEON_UART','others','driver_configuration','Taste::FS_Default_Value','"{console-id 1, baud 19200}"','').
+isProperty('NIL','=>','interfaceview::IV','LEON_UART','others','driver_configuration','Taste::FS_Default_Value','"{console-id 1, baud 9600}"','').
 isSubcomponent('interfaceview::IV','LEON_UART','others','extraCompileFlags','DATA','DataView::TASTE_Directive','NIL','NIL','').
 isProperty('NIL','=>','interfaceview::IV','LEON_UART','others','extraCompileFlags','Taste::FS_Default_Value','"compiler-option:""-I $PRJ_DIR/libs/install/include/"""','').
 isComponentType('interfaceview::FV::LEON_UART','PUBLIC','PI_txUartBytes','SUBPROGRAM','NIL','').
@@ -186,6 +190,8 @@ isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::SystemInit'
 isImportDeclaration('interfaceview::FV::SystemInit','PUBLIC','Taste','').
 isImportDeclaration('interfaceview::FV::SystemInit','PUBLIC','DataView','').
 isImportDeclaration('interfaceview::FV::SystemInit','PUBLIC','TASTE_IV_Properties','').
+isSubcomponent('interfaceview::IV','LEON_OC_CAN','others','extraCompileFlags','DATA','DataView::TASTE_Directive','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','LEON_OC_CAN','others','extraCompileFlags','Taste::FS_Default_Value','"compiler-option:""-I $PRJ_DIR/libs/install/include/"""','').
 isConnection('SUBPROGRAM ACCESS','interfaceview::IV','interfaceview','others','LEON_OC_CAN_PI_txCanFrame_CAN_Protocol_Impl_RI_txCanFrame','LEON_OC_CAN.PI_txCanFrame','->','CAN_Protocol_Impl.RI_txCanFrame','NIL','').
 isProperty('NIL','=>','interfaceview::IV','interfaceview','others','LEON_OC_CAN_PI_txCanFrame_CAN_Protocol_Impl_RI_txCanFrame','Taste::coordinates','"163832 131294 180469 131294 180469 132750 199878 132750"','').
 isComponentType('interfaceview::FV::LEON_OC_CAN','PUBLIC','PI_txCanFrame','SUBPROGRAM','NIL','').
@@ -237,6 +243,8 @@ isImportDeclaration('interfaceview::IV','PUBLIC','interfaceview::FV::LEON_OC_CAN
 isImportDeclaration('interfaceview::FV::LEON_OC_CAN','PUBLIC','Taste','').
 isImportDeclaration('interfaceview::FV::LEON_OC_CAN','PUBLIC','DataView','').
 isImportDeclaration('interfaceview::FV::LEON_OC_CAN','PUBLIC','TASTE_IV_Properties','').
+isSubcomponent('interfaceview::IV','CAN_Protocol_Impl','others','extraCompileFlags','DATA','DataView::TASTE_Directive','NIL','NIL','').
+isProperty('NIL','=>','interfaceview::IV','CAN_Protocol_Impl','others','extraCompileFlags','Taste::FS_Default_Value','"compiler-option:""-I $PRJ_DIR/libs/install/include/"""','').
 isComponentType('interfaceview::FV::CAN_Protocol_Impl','PUBLIC','PI_rxCanFrame','SUBPROGRAM','NIL','').
 isComponentImplementation('interfaceview::FV::CAN_Protocol_Impl','PUBLIC','PI_rxCanFrame','others','SUBPROGRAM','NIL','others','').
 isFeature('ACCESS','interfaceview::IV','CAN_Protocol_Impl','PI_rxCanFrame','PROVIDES','SUBPROGRAM','interfaceview::FV::CAN_Protocol_Impl::PI_rxCanFrame.others','NIL','NIL','').

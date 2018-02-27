@@ -1,7 +1,6 @@
-/* User code: This file will not be overwritten by TASTE. */
 #if defined (__linux__) || defined (RTEMS412)
 /*  We need GNU extensions, otherwise time types are messed up.
-    These are Linux or RTEMS specific
+    These are Linux/RTEMS specific
  */
 #ifndef _GNU_SOURCE
 #define _GNU_SOURCE 1

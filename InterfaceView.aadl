@@ -53,6 +53,10 @@ PROPERTIES
 END Manager;
 
 SYSTEM IMPLEMENTATION Manager.others
+SUBCOMPONENTS
+  extraCompileFlags : DATA DataView::TASTE_Directive {
+    Taste::FS_Default_Value => "compiler-option:""-I $PRJ_DIR/libs/install/include/""";
+  };
 END Manager.others;
 
 END interfaceview::IV::Manager;
@@ -153,6 +157,10 @@ PROPERTIES
 END GPS_Driver;
 
 SYSTEM IMPLEMENTATION GPS_Driver.others
+SUBCOMPONENTS
+  extraCompileFlags : DATA DataView::TASTE_Directive {
+    Taste::FS_Default_Value => "compiler-option:""-I $PRJ_DIR/libs/install/include/""";
+  };
 END GPS_Driver.others;
 
 END interfaceview::IV::GPS_Driver;
@@ -355,6 +363,10 @@ PROPERTIES
 END LEON_OC_CAN;
 
 SYSTEM IMPLEMENTATION LEON_OC_CAN.others
+SUBCOMPONENTS
+  extraCompileFlags : DATA DataView::TASTE_Directive {
+    Taste::FS_Default_Value => "compiler-option:""-I $PRJ_DIR/libs/install/include/""";
+  };
 END LEON_OC_CAN.others;
 
 END interfaceview::IV::LEON_OC_CAN;
@@ -411,6 +423,10 @@ PROPERTIES
 END CAN_Protocol_Impl;
 
 SYSTEM IMPLEMENTATION CAN_Protocol_Impl.others
+SUBCOMPONENTS
+  extraCompileFlags : DATA DataView::TASTE_Directive {
+    Taste::FS_Default_Value => "compiler-option:""-I $PRJ_DIR/libs/install/include/""";
+  };
 END CAN_Protocol_Impl.others;
 
 END interfaceview::IV::CAN_Protocol_Impl;
