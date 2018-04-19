@@ -17,5 +17,4 @@ tags
 .DS_store
 *.pdf
 *.html
-include
 lib
